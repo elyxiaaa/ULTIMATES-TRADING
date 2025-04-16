@@ -11,6 +11,10 @@ import giPipe from '../assets/galvanized-iron.jpg';
 import deformedBar from '../assets/deformed-bar.jpg';
 import wideFlange from '../assets/wide-flange.jpg';
 import sheetPile from '../assets/sheet-pile.jpg';
+import SSteelPipes from '../assets/Stainless-Steel-Pipes-Round.jpg'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const items = [
   { title: "Deformed Bar", image: deformedBar },
@@ -18,6 +22,7 @@ const items = [
   { title: "G.I. Pipe", image: giPipe },
   { title: "Wide Flange", image: wideFlange },
   { title: "Sheet Pile", image: sheetPile },
+  { title: "Stainless Steel Pipe", image: SSteelPipes}
 ];
 
 const slides = [
@@ -49,11 +54,38 @@ const slides = [
 
 function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(1);
-  const carouselRef = useRef(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true, // This ensures the middle slide is always in focus
+    centerPadding: '0', // Prevents padding around the focused slide
+    autoplay: true, // Enables auto-slide
+    autoplaySpeed: 3000, // Auto transition every 3 seconds
+    focusOnSelect: true, // Allows clicking on the middle slide to focus it
+    afterChange: (index) => setActiveIndex(index), // Update activeIndex after each slide change
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          centerMode: true, // Ensures the middle item is focused on tablets and larger screens
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          centerMode: true, // Ensures the middle item is focused on small screens
+        },
+      },
+    ],
+  };
+  
+  const sliderRef = useRef(null); // Create a reference for the slider
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -61,28 +93,6 @@ function Home() {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-
-  const handleMouseDown = (e) => {
-    isDragging.current = true;
-    startX.current = e.pageX - carouselRef.current.offsetLeft;
-    scrollLeft.current = carouselRef.current.scrollLeft;
-  };
-
-  const handleMouseLeave = () => {
-    isDragging.current = false;
-  };
-
-  const handleMouseUp = () => {
-    isDragging.current = false;
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging.current) return;
-    e.preventDefault();
-    const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5;
-    carouselRef.current.scrollLeft = scrollLeft.current - walk;
-  };
 
   return (
     <>
@@ -175,47 +185,46 @@ function Home() {
         </div>
 
         <div className="w-full mt-12 px-4 md:px-12">
-          <div
-            ref={carouselRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-          >
-            {items.map((item, index) => (
+      <div className="relative">
+        <Slider
+          {...settings}
+          ref={sliderRef} 
+        >
+          {items.map((item, index) => (
+            <div key={index} className="relative px-3">
               <div
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`relative min-w-[260px] sm:min-w-[300px] h-[200px] transition-all duration-500 flex-shrink-0 rounded-xl overflow-hidden 
-                  ${index === activeIndex ? 'scale-105 z-10' : 'opacity-60'}
-                `}
-                style={{
-                  backgroundImage: `url(${item.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
+                className={`w-full h-[300px] md:h-[360px] lg:h-[400px] xl:h-[460px] overflow-hidden flex items-center justify-center rounded-lg relative transition-all duration-300
+                  ${activeIndex === index ? '' : 'bg-white opacity-50'}`} // Apply overlay for non-active slides
               >
-                <div className="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-lg">
-                  {item.title}
-                </div>
+                <div
+                  className={`w-full h-full bg-cover bg-center transition-all duration-300`}
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
               </div>
-            ))}
-          </div>
-
-          {/* BUTTON */}
-          <div className="mt-6 flex justify-center gap-3">
-            {items.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 
-                  ${activeIndex === index ? 'bg-green-600 scale-125' : 'bg-gray-400'}
-                `}
-              />
-            ))}
-          </div>
+              <div className="absolute bottom-4 left-10 text-white font-bold text-2xl drop-shadow-lg">
+                {item.title}
+              </div>
+            </div>
+          ))}
+        </Slider>
+        <div className="mt-6 flex justify-center gap-3">
+          {items.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => sliderRef.current.slickGoTo(index)} 
+              className={`w-3 h-3 rounded-full transition-all duration-300 
+                ${activeIndex === index ? 'bg-green-600 scale-125' : 'bg-gray-400'}`}
+            />
+          ))}
         </div>
+      </div>
+    </div>
+
+
       </div>
 
       {/* PLACEHOLDER FINAL SECTION */}

@@ -22,8 +22,8 @@ function Navbar({ activeTab }) {
     navigate('/products');
     window.scrollTo(0, 0);
   };
-  const handleCombinationClick = () => {
-    navigate('/combination');
+  const handleLocationClick = () => {
+    navigate('/location');
     window.scrollTo(0, 0);
   };
   const handleFarmSiteClick = () => {
@@ -123,12 +123,13 @@ function Navbar({ activeTab }) {
               </button>
             </li>
           </Link>
-
+          <Link to="/location">
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
             <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
              Location
             </button>
           </li>
+          </Link>
 
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
             <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
