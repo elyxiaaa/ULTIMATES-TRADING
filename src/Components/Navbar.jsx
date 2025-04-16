@@ -143,12 +143,13 @@ function Navbar({ activeTab }) {
             </button>
           </li>
 
-
+          <Link to="/contact">
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
             <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
-             Contacts
+             Inquire Now
             </button>
           </li>
+          </Link>
             
           </ul>
         </div>
