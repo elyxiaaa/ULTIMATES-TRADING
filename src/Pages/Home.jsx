@@ -104,9 +104,9 @@ function Home() {
 
         <div className="relative z-10 flex flex-col text-white py-20 px-6 md:px-16 lg:px-36">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            BUILDING <br />
+            <strong>BUILDING <br />
             EXCELLENCE AND <br />
-            INTEGRITY.
+            INTEGRITY.</strong>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl max-w-2xl mb-6">
             At our core, we are dedicated to delivering top-tier steel solutions. Our unwavering commitment to quality and customer satisfaction ensures that every project you undertake is built on a foundation of trust and reliability.
@@ -121,8 +121,8 @@ function Home() {
 <div className="w-full py-10 bg-BG2 bg-cover bg-center bg-no-repeat">
   <div className="flex justify-center lg:justify-start  px-4 sm:px-12 md:px-16 lg:px-24 xl:px-44">
     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center lg:text-left leading-tight">
-      <span className="text-green-900 font-bold">MORE THAN</span> <br />
-      <span className="text-green-500 font-bold">JUST STEEL</span>
+      <span className="text-green-900 font-bold"><strong>MORE THAN</strong></span> <br />
+      <span className="text-green-500 font-bold"><strong>JUST STEEL</strong></span>
     </h1>
   </div>
 
@@ -170,8 +170,8 @@ function Home() {
         <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-green-900">VARIABILITY &</span> <br />
-              <span className="text-green-500">AVAILABILITY</span>
+              <span className="text-green-900"><strong>VARIABILITY &</strong></span> <br />
+              <span className="text-green-500"><strong>AVAILABILITY</strong></span>
             </h1>
           </div>
           <div className="w-full lg:w-1/2 text-center lg:text-left">

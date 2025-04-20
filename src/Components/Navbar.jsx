@@ -26,7 +26,7 @@ function Navbar({ activeTab }) {
     navigate('/location');
     window.scrollTo(0, 0);
   };
-  const handleFarmSiteClick = () => {
+  const handleCareerClick = () => {
     navigate('/farmsite');
     window.scrollTo(0, 0);
   };
@@ -125,18 +125,18 @@ function Navbar({ activeTab }) {
           </Link>
           <Link to="/location">
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-            <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
+            <button onClick={handleLocationClick} className="flex items-center cursor-pointer">
              Location
             </button>
           </li>
           </Link>
-
+          <Link to="/career">
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-            <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
+            <button onClick={handleCareerClick} className="flex items-center cursor-pointer">
              Careers
             </button>
           </li>
-
+          </Link>
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
             <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
              FAQs

@@ -145,13 +145,14 @@ function Products() {
 
   return (
     <>
+    <title>High Quality Products</title>
       <Navbar />
       <div className="w-full bg-white py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-green-900">THE UCMT</span><br />
-              <span className="text-green-500">GUARANTEE</span>
+              <span className="text-green-900"><strong>THE UCMT</strong></span><br />
+              <span className="text-green-500"><strong>GUARANTEE</strong></span>
             </h1>
             <div className="w-32 h-1 bg-green-500 my-4 mx-auto lg:mx-0" />
             <p className="text-lg text-green-950 font-medium">
@@ -168,7 +169,7 @@ function Products() {
       <div className="min-h-screen bg-[#f5f8f3] px-4 py-12">
         <div className="max-w-7xl mx-auto flex justify-between items-center flex-wrap mb-8 px-2">
           <h1 className="text-6xl sm:text-7xl font-bold text-green-900">
-            OUR PRODUCTS
+            <strong>OUR PRODUCTS</strong>
           </h1>
           <input
             type="text"
@@ -192,7 +193,7 @@ function Products() {
                     alt={product.name}
                     className="w-full h-64 object-cover rounded shadow-md cursor-pointer"
                   />
-                  <h2 className="mt-4 text-lg font-semibold text-center">{product.name}</h2>
+                  <h2 className="mt-4 text-lg font-bold text-center">{product.name}</h2>
                 </Link>
               </div>
             ))
