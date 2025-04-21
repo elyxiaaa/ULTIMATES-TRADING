@@ -129,9 +129,9 @@ function Career() {
             </h1>
             <div className="w-32 h-1 bg-green-500 my-4 mx-auto lg:mx-0" />
             <p className="text-lg text-green-950 font-medium">
-              At UCMT, we treat our employees as family so we invest in<br />
-              their development through trainings and give them <br />
-              additional benefits for a better way of life. Build your career with us by sending your resume.
+            At UCMT, we invest in our employees because we treat them like family.
+            their growth via instruction and provide them with  
+            more advantages for a better quality of life.  Send us your résumé to start your career.
             </p>
           </div>
           <div className="w-full lg:w-1/2 text-center lg:text-left">
@@ -188,6 +188,76 @@ function Career() {
           ))}
         </div>
       </div>
+
+      <div className="min-h-screen flex items-center justify-center bg-[#f7f9f7] px-4 py-12" style={{ backgroundImage: 'url("/path/to/your/bg-pattern.png")', backgroundRepeat: 'repeat' }}>
+      <div className="w-full max-w-2xl bg-white bg-opacity-70 p-8 rounded-md shadow-md">
+        <h2 className="text-2xl font-bold text-center text-green-800 mb-6">Apply Now</h2>
+        <form className="space-y-4">
+          <input type="text" placeholder="Name *" className="w-full border border-gray-300 p-2 rounded " />
+          
+          <div className="flex gap-4">
+            <input type="email" required placeholder="Email *" className="w-full border border-gray-300 p-2 rounded" />
+            <input type="tel" required placeholder="Mobile Number *" className="w-full border border-gray-300 p-2 rounded" />
+          </div>
+
+          <select className="w-full border border-gray-300 p-2 rounded">
+            <option>Position Applying for *</option>
+            <option>Delivery Driver</option>
+            <option>Content Writer</option>
+            <option>Marketing Assistant</option>
+            {/* Add other positions */}
+          </select>
+
+          <input type="text" placeholder="(Facebook, IG or LinkedIn) *" className="w-full border border-gray-300 p-2 rounded" />
+
+          <textarea
+            placeholder="Type in your message *"
+            rows="4"
+            className="w-full border border-gray-300 p-2 rounded resize-none"
+          />
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Resume *</label>
+            <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-300 rounded-md">
+              <div className="space-y-1 text-center">
+                <svg
+                  className="mx-auto h-12 w-12 text-gray-400"
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 48 48"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M...Z" // use actual path or replace with an icon library
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                  />
+                </svg>
+                <div className="flex text-sm text-gray-600">
+                  <label
+                    htmlFor="file-upload"
+                    className="relative cursor-pointer text-green-700 hover:text-green-900 font-medium"
+                  >
+                    <span>Drop files here or click to upload</span>
+                    <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-lime-700 text-white px-6 py-2 rounded hover:bg-lime-600 transition-all"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
       <Footer />
     </>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from "react-router-dom"; 
 import Navbar from '../Components/Navbar.jsx';
 import Footer from '../Components/Footer.jsx';
 import { GrNext, GrPrevious } from "react-icons/gr";
@@ -84,6 +85,16 @@ function Home() {
       },
     ],
   };
+  const navigate = useNavigate(); 
+    const handleProductsClick = () => {
+      navigate('/products');
+      window.scrollTo(0, 0);
+    };
+
+    const handleContactClick = () => {
+      navigate('/contact');
+      window.scrollTo(0, 0);
+    };
   
   const sliderRef = useRef(null); // Create a reference for the slider
 
@@ -178,9 +189,12 @@ function Home() {
             <p className="text-lg sm:text-xl md:text-2xl font-semibold text-black">
               You can find everything that you need all coming from a brand with a guarantee of good quality.
             </p>
-            <button className="mt-6 w-56 font-bold bg-green-400 text-green-900 hover:text-white hover:bg-green-500 py-4 px-6 rounded-md transition-all duration-300">
-              View All Products
-            </button>
+            <Link to="/products">
+              <button onClick={handleProductsClick}
+              className="mt-6 w-56 font-bold bg-green-400 text-green-900 hover:text-white hover:bg-green-500 py-4 px-6 rounded-md transition-all duration-300">
+                View All Products
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -234,7 +248,9 @@ function Home() {
             Having trouble choosing <br/>
             the right product?
           </h1>
-          <button className="w-44 font-bold bg-green-400 text-green-900 hover:text-white hover:bg-green-500 py-4 px-6 rounded-md">
+          <button
+          onClick={handleContactClick}
+           className="w-44 font-bold bg-green-400 text-green-900 hover:text-white hover:bg-green-500 py-4 px-6 rounded-md">
             Contact Us
           </button>
         </div>

@@ -156,8 +156,8 @@ function Products() {
             </h1>
             <div className="w-32 h-1 bg-green-500 my-4 mx-auto lg:mx-0" />
             <p className="text-lg text-green-950 font-medium">
-              We make sure our products fit the high standards of TKL<br />
-              because your business and your safety matter to us.
+            We ensure that our products meet UCMT's exacting <br/> standards. 
+            because we care about your safety and business.
             </p>
           </div>
           <div className="w-full lg:w-1/2 text-center lg:text-left">

@@ -12,7 +12,7 @@ import Icon from '../assets/Logo.png'
 
 function Navbar({ activeTab }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navigate = useNavigate(); // useNavigate hook for programmatic navigation
+  const navigate = useNavigate(); 
 
   const handleHomeClick = () => {
     navigate('/');
@@ -27,7 +27,11 @@ function Navbar({ activeTab }) {
     window.scrollTo(0, 0);
   };
   const handleCareerClick = () => {
-    navigate('/farmsite');
+    navigate('/career');
+    window.scrollTo(0, 0);
+  };
+  const handleContactClick = () => {
+    navigate('/contact');
     window.scrollTo(0, 0);
   };
   const handleDropListClick = () => {
@@ -103,7 +107,7 @@ function Navbar({ activeTab }) {
           <img
             src={Icon}
             alt="Logo"
-            className="h-20 w-auto mt-3" // Adjust size as needed
+            className="h-20 w-auto " // Adjust size as needed
           />
         </Link>
       </div>
@@ -145,8 +149,8 @@ function Navbar({ activeTab }) {
 
           <Link to="/contact">
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-            <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
-             Inquire Now
+            <button onClick={handleContactClick} className="flex items-center cursor-pointer">
+             Contact Us
             </button>
           </li>
           </Link>

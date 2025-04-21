@@ -10,7 +10,8 @@ export default {
       backgroundImage: {
              'BG1': "url('/src/assets/BG1.jpg')",
              'BG2': "url('/src/assets/BG2.jpg')",
-             'BG3': "url('/src/assets/BG3.jpg')",
+             'BG3': "url('/src/assets/BG3.jpg')", 
+             'BG4': "url('/src/assets/BG4.jpg')", 
      
            },
   },
