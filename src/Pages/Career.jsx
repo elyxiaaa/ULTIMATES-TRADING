@@ -4,7 +4,6 @@ import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 
 function Career() {
-  // State for managing which job's dropdown is open
   const [openJob, setOpenJob] = useState(null)
 
   const toggleDropdown = (index) => {
@@ -196,7 +195,7 @@ function Career() {
           <input type="text" placeholder="Name *" className="w-full border border-gray-300 p-2 rounded " />
           
           <div className="flex gap-4">
-            <input type="email" required placeholder="Email *" className="w-full border border-gray-300 p-2 rounded" />
+            <input type="email" required placeholder="Email *" className="w-full border border-gray-300 p-2n rounded" />
             <input type="tel" required placeholder="Mobile Number *" className="w-full border border-gray-300 p-2 rounded" />
           </div>
 
@@ -205,7 +204,6 @@ function Career() {
             <option>Delivery Driver</option>
             <option>Content Writer</option>
             <option>Marketing Assistant</option>
-            {/* Add other positions */}
           </select>
 
           <input type="text" placeholder="(Facebook, IG or LinkedIn) *" className="w-full border border-gray-300 p-2 rounded" />
@@ -228,7 +226,7 @@ function Career() {
                   aria-hidden="true"
                 >
                   <path
-                    d="M...Z" // use actual path or replace with an icon library
+                    d="M...Z" 
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"

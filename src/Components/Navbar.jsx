@@ -34,24 +34,11 @@ function Navbar({ activeTab }) {
     navigate('/contact');
     window.scrollTo(0, 0);
   };
-  const handleDropListClick = () => {
-    navigate('/droplist');
+  const handleFaqClick = () => {
+    navigate('/daq');
     window.scrollTo(0, 0);
   };
-  const handleRulesClick = () => {
-    navigate('/rules');
-    window.scrollTo(0, 0);
-  };
-  
-  const handleBattlepassClick = () => {
-    navigate('/battlepass');
-    window.scrollTo(0, 0);
-  };
-  
-  const handleDailyQuestClick = () => {
-    navigate('/dailyquest');
-    window.scrollTo(0, 0);
-  };
+ 
 
   const handleLeaderboardsClick = () => {
 
@@ -59,7 +46,6 @@ function Navbar({ activeTab }) {
 
 
     setTimeout(() => {
-      // Use react-scroll to scroll to the "leaderboards-section"
       const leaderboardsLink = document.getElementById('leaderboards-section');
       if (leaderboardsLink) {
         leaderboardsLink.scrollIntoView({ behavior: 'smooth' });
@@ -141,12 +127,14 @@ function Navbar({ activeTab }) {
             </button>
           </li>
           </Link>
+
+          <Link to="/faq">
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-            <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
+            <button onClick={handleFaqClick} className="flex items-center cursor-pointer">
              FAQs
             </button>
           </li>
-
+          </Link>
           <Link to="/contact">
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
             <button onClick={handleContactClick} className="flex items-center cursor-pointer">
@@ -188,32 +176,33 @@ function Navbar({ activeTab }) {
       {isMobileMenuOpen && (
         <ul className="lg:hidden bg-green-900 text-white font-COP1 mt-2 p-4 space-y-3 shadow-lg rounded">
           {/* Home Button with React Scroll */}
+          
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
             <button onClick={handleHomeClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
              Home
             </button>
           </li>
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-          <button onClick={handleHomeClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
-             Steel Products
+          <button onClick={handleProductsClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
+             Products
             </button>
           </li>
 
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-          <button onClick={handleHomeClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
+          <button onClick={handleLocationClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
              Location
             </button>
           </li>
 
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-          <button onClick={handleHomeClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
+          <button onClick={handleFaqClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
              FAQs
             </button>
           </li>
 
 
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-          <button onClick={handleHomeClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
+          <button onClick={handleContactClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
              Contacts
             </button>
           </li>
