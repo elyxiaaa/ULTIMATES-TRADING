@@ -122,7 +122,7 @@ function Home() {
           <p className="text-lg sm:text-xl md:text-2xl max-w-2xl mb-6">
             At our core, we are dedicated to delivering top-tier steel solutions. Our unwavering commitment to quality and customer satisfaction ensures that every project you undertake is built on a foundation of trust and reliability.
           </p>
-          <button className="w-44 font-bold bg-green-400 text-green-900 hover:text-white hover:bg-green-500 py-4 px-6 rounded-md">
+          <button className="w-44 font-bold bg-indigo-900 text-white hover:text-white hover:bg-indigo-500 py-4 px-6 rounded-md">
             Learn More
           </button>
         </div>
@@ -132,15 +132,15 @@ function Home() {
 <div className="w-full py-10 bg-BG2 bg-cover bg-center bg-no-repeat">
   <div className="flex justify-center lg:justify-start  px-4 sm:px-12 md:px-16 lg:px-24 xl:px-44">
     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center lg:text-left leading-tight">
-      <span className="text-green-900 font-bold"><strong>MORE THAN</strong></span> <br />
-      <span className="text-green-500 font-bold"><strong>JUST STEEL</strong></span>
+      <span className="text-indigo-950 font-bold"><strong>MORE THAN</strong></span> <br />
+      <span className="text-yellow-500 font-bold"><strong>JUST STEEL</strong></span>
     </h1>
   </div>
 
   {/* SLIDER */}
   <div className="flex flex-col-reverse lg:flex-row items-center gap-10 px-6 md:px-12 lg:px-24 xl:px-44 mt-12">
     <div className="w-full lg:w-1/2 text-center lg:text-left">
-      <h2 className="text-3xl sm:text-4xl md:text-5xl text-green-900 font-bold mb-6">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl text-indigo-950 font-bold mb-6">
         {slides[activeSlide].title}
       </h2>
       <p className="text-lg sm:text-xl md:text-2xl text-black">
@@ -153,7 +153,7 @@ function Home() {
         onClick={() =>
           setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length)
         }
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-green-500 text-white ml-2 p-3 rounded-full hover:bg-green-700 transition"
+        className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-indigo-500 text-white ml-2 p-3 rounded-full hover:bg-indigo-700 transition"
       >
         <GrPrevious size={24} />
       </button>
@@ -167,7 +167,7 @@ function Home() {
       {/* NEXT */}
       <button
         onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)}
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-green-500 text-white mr-2 p-3 rounded-full hover:bg-green-700 transition"
+        className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-indigo-500 text-white mr-2 p-3 rounded-full hover:bg-indigo-700 transition"
       >
         <GrNext size={24} />
       </button>
@@ -181,8 +181,8 @@ function Home() {
         <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-green-900"><strong>VARIABILITY &</strong></span> <br />
-              <span className="text-green-500"><strong>AVAILABILITY</strong></span>
+              <span className="text-indigo-950"><strong>VARIABILITY &</strong></span> <br />
+              <span className="text-yellow-500"><strong>AVAILABILITY</strong></span>
             </h1>
           </div>
           <div className="w-full lg:w-1/2 text-center lg:text-left">
@@ -191,7 +191,7 @@ function Home() {
             </p>
             <Link to="/products">
               <button onClick={handleProductsClick}
-              className="mt-6 w-56 font-bold bg-green-400 text-green-900 hover:text-white hover:bg-green-500 py-4 px-6 rounded-md transition-all duration-300">
+              className="mt-6 w-56 font-bold bg-indigo-900 text-white hover:text-white hover:bg-indigo-500  py-4 px-6 rounded-md transition-all duration-300">
                 View All Products
               </button>
             </Link>
@@ -231,7 +231,7 @@ function Home() {
               key={index}
               onClick={() => sliderRef.current.slickGoTo(index)} 
               className={`w-3 h-3 rounded-full transition-all duration-300 
-                ${activeIndex === index ? 'bg-green-600 scale-125' : 'bg-gray-400'}`}
+                ${activeIndex === index ? 'bg-indigo-600 scale-125' : 'bg-gray-400'}`}
             />
           ))}
         </div>
@@ -250,7 +250,7 @@ function Home() {
           </h1>
           <button
           onClick={handleContactClick}
-           className="w-44 font-bold bg-green-400 text-green-900 hover:text-white hover:bg-green-500 py-4 px-6 rounded-md">
+           className="w-44 font-bold bg-indigo-900 text-white hover:text-white hover:bg-indigo-500 py-4 px-6 rounded-md">
             Contact Us
           </button>
         </div>

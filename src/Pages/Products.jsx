@@ -62,7 +62,11 @@ import { Link } from 'react-router-dom'
 
 const products = [
   { name: "Wide Flange", image: WideFlange },
-  { name: "Sheet Pile", image: Sheetpile },
+  {
+    name: "Sheet Pile",
+    image: Sheetpile,
+    description: "Used for retaining walls and foundation support in construction."
+  },
   { name: "Deformed Bar", image: DeformedBars},
   { name: "B.I. Rectangular Tube", image: RectangularTubing},
   { name: "G.I. Square Tube", image: SquareTubing },
@@ -129,6 +133,7 @@ const itemsPerPage = 12;
 function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -186,16 +191,14 @@ function Products() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {currentItems.length > 0 ? (
             currentItems.map((product, index) => (
-              <div key={index} className="flex flex-col items-center text-[#1f3c1f] hover:text-green-500">
-                <Link to={`/product/${product.name}`} className="w-full h-full">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-64 object-cover rounded shadow-md cursor-pointer"
-                  />
-                  <h2 className="mt-4 text-lg font-bold text-center">{product.name}</h2>
-                </Link>
-              </div>
+              <div 
+              key={product.name} 
+              onClick={() => setSelectedProduct(product)} 
+              className="cursor-pointer transition hover:scale-105 duration-200"
+            >
+              <img src={product.image} alt={product.name} className="rounded shadow-md" />
+              <p className="mt-2 text-center font-medium">{product.name}</p>
+            </div>
             ))
           ) : (
             <div className="col-span-full text-center text-lg text-gray-600">
@@ -239,6 +242,31 @@ function Products() {
           </div>
         )}
       </div>
+
+      {selectedProduct && (
+  <dialog id="product_modal" className="modal modal-open" onClick={() => setSelectedProduct(null)}>
+    <div className="modal-box max-w-2xl" onClick={(e) => e.stopPropagation()}>
+      <h3 className="font-bold text-xl mb-4 text-center">{selectedProduct.name}</h3>
+      
+      <img
+        src={selectedProduct.image}
+        alt={selectedProduct.name}
+        className="rounded mb-2 mx-auto max-h-[400px] w-full object-contain"
+      />
+      
+      <p className="text-gray-600 mt-4 text-sm text-justify">
+        {selectedProduct.description}
+      </p>
+
+      <div className="modal-action">
+        <button className="btn btn-sm btn-outline" onClick={() => setSelectedProduct(null)}>
+          Close
+        </button>
+      </div>
+    </div>
+  </dialog>
+)}
+
 
       <Footer />
     </>

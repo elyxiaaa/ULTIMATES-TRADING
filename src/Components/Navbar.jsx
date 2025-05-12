@@ -85,7 +85,7 @@ function Navbar({ activeTab }) {
         activeTab === tabName ? "text-red-500" : "text-white";
 
   return (
-    <nav className="bg-green-900 text-white font-COP1 px-6 py-10 sticky top-0 z-50">
+    <nav className="bg-indigo-950 text-white font-COP1 px-6 py-10 sticky top-0 z-50">
     <div className="container mx-auto flex justify-between items-center relative">
       {/* Logo (Visible on large screens only) */}
       <div className="absolute left-44   top-1/2 transform -translate-y-1/2 hidden lg:block">
@@ -101,27 +101,27 @@ function Navbar({ activeTab }) {
       {/* Navigation Links - Desktop Only */}
       <div className="hidden lg:flex justify-end mr-20 flex-1">
         <ul className="flex gap-10 items-center text-xl font-medium">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
             <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
              Home
             </button>
           </li>
           <Link to="/products">
-            <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
+            <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
               <button onClick={handleProductsClick} className="flex items-center cursor-pointer">
               Products
               </button>
             </li>
           </Link>
           <Link to="/location">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
             <button onClick={handleLocationClick} className="flex items-center cursor-pointer">
              Location
             </button>
           </li>
           </Link>
           <Link to="/career">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
             <button onClick={handleCareerClick} className="flex items-center cursor-pointer">
              Careers
             </button>
@@ -129,14 +129,14 @@ function Navbar({ activeTab }) {
           </Link>
 
           <Link to="/faq">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
             <button onClick={handleFaqClick} className="flex items-center cursor-pointer">
              FAQs
             </button>
           </li>
           </Link>
           <Link to="/contact">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
             <button onClick={handleContactClick} className="flex items-center cursor-pointer">
              Contact Us
             </button>
@@ -174,35 +174,35 @@ function Navbar({ activeTab }) {
 
       {/* Mobile and Tablet Menu Dropdown */}
       {isMobileMenuOpen && (
-        <ul className="lg:hidden bg-green-900 text-white font-COP1 mt-2 p-4 space-y-3 shadow-lg rounded">
+        <ul className="lg:hidden bg-indigo-950 text-white font-COP1 mt-2 p-4 space-y-3 shadow-lg rounded">
           {/* Home Button with React Scroll */}
           
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-            <button onClick={handleHomeClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
+            <button onClick={handleHomeClick} className="flex items-center w-full hover:bg-greyellowen-400 hover:text-white p-2 cursor-pointer">
              Home
             </button>
           </li>
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-          <button onClick={handleProductsClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
+          <button onClick={handleProductsClick} className="flex items-center w-full hover:bg-yellow-400 hover:text-white p-2 cursor-pointer">
              Products
             </button>
           </li>
 
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-          <button onClick={handleLocationClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
+          <button onClick={handleLocationClick} className="flex items-center w-full hover:bg-yellow-400 hover:text-white p-2 cursor-pointer">
              Location
             </button>
           </li>
 
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-          <button onClick={handleFaqClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
+          <button onClick={handleFaqClick} className="flex items-center w-full hover:bg-yellow-400 hover:text-white p-2 cursor-pointer">
              FAQs
             </button>
           </li>
 
 
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-green-400 group">
-          <button onClick={handleContactClick} className="flex items-center w-full hover:bg-green-400 hover:text-white p-2 cursor-pointer">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
+          <button onClick={handleContactClick} className="flex items-center w-full hover:bg-yellow-400 hover:text-white p-2 cursor-pointer">
              Contacts
             </button>
           </li>
