@@ -67,7 +67,19 @@ const products = [
     image: Sheetpile,
     description: "Used for retaining walls and foundation support in construction."
   },
-  { name: "Deformed Bar", image: DeformedBars},
+ {
+  name: "Deformed Bar",
+  image: DeformedBars,
+  description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+  sizes: [
+    "1/2 x 2.8Kg x 6mtrs S20 1.0mm",
+"10mm x 6m",
+"12mm x 6m",
+"16mm x 6m",
+"20mm x 6m",
+"25mm x 6m",
+  ]
+},
   { name: "B.I. Rectangular Tube", image: RectangularTubing},
   { name: "G.I. Square Tube", image: SquareTubing },
   { name: "B.I. Square Tube", image: SquareTubing },
@@ -76,7 +88,43 @@ const products = [
   { name: "B.I. Sheet", image: BISheet },
   { name: "Flat Bar", image: FlatBars },
   { name: "B.I Pipe", image: BIPipes2 },
-  { name: "G.I Pipe", image: GIPipes },
+  {
+  name: "G.I Pipe",
+  image: GIPipes,
+  description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+  sizes: [
+    "1/2 x 2.8Kg x 6mtrs S20 1.0mm",
+"1/2 x 3.8Kg x 6mtrs S20 1.2mm",
+"1/2 x 4.2Kg x 6mtrs S40 1.5mm",
+"3/4 x 3.9Kg x 6mtrs S20 1.0mm",
+"3/4 x 4.8Kg x 6mtrs S20 1.3mm",
+"3/4 x 5.5Kg x 6mtrs S40 1.5mm",
+"3/4 x 7Kg x 6mtrs S40 2.0mm",
+"1 inch x 5.5Kg x 6mtrs S20 1.2mm",
+"1 inch x 6Kg x 6mtrs S20 1.3mm",
+"1 inch x 7Kg x 6mtrs S20 1.5mm",
+"1 inch x 9Kg x 6mtrs S40 2.0mm",
+"1 1/4 x 8Kg x 6mtrs S20 1.3mm",
+"1 1/4 x 9Kg x 6mtrs S20 1.4mm",
+"1 1/4 x 10.7Kg x 6mtrs S40 1.7mm",
+"1 1/4 x 11.6Kg x 6mtrs S40 2.0mm",
+"1 1/2 x 7Kg x 6mtrs S20 1.0mm",
+"1 1/2 x 8Kg x 6mtrs S20 1.2mm",
+"1 1/2 x 9Kg x 6mtrs S20 1.3mm",
+"1 1/2 x 11Kg x 6mtrs S20 1.5mm",
+"1 1/2 x 13Kg x 6mtrs S40 1.7mm",
+"1 1/2 x 14Kg x 6mtrs S40 1.9mm",
+"1 1/2 x 16Kg x 6mtrs S40 2.3mm",
+"2 inch x 16kg x 6mtrs S20 1.7mm",
+"2 inch x 19kg x 6mtrs S40 2.3mm",
+"2 inch x 20kg x 6mtrs S40 2.8mm",
+"2 1/2 x 17kg x 6mtrs S20 1.7mm",
+"3 inch x 26kg x 6mtrs S20 2.0mm",
+"3 inch x 32kg x 6mtrs S40 2.3mm",
+"4 inch x 33kg x 6mtrs S20 2.0mm",
+"4 inch x 42kg x 6mtrs S40 2.3mm",
+  ]
+},
   { name: "Accordion Plate", image: AccordionPlate },
   { name: "Barbed Wires", image: BarbedWires },
   { name: "Base Plate", image: BasePlate },
@@ -156,11 +204,11 @@ function Products() {
         <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-green-900"><strong>THE UCMT</strong></span><br />
-              <span className="text-green-500"><strong>GUARANTEE</strong></span>
+              <span className="text-indigo-950"><strong>THE U.C.M.T</strong></span><br />
+              <span className="text-yellow-500"><strong>GUARANTEE</strong></span>
             </h1>
-            <div className="w-32 h-1 bg-green-500 my-4 mx-auto lg:mx-0" />
-            <p className="text-lg text-green-950 font-medium">
+            <div className="w-32 h-1 bg-indigo-950 my-4 mx-auto lg:mx-0" />
+            <p className="text-lg text-indigo-950 font-medium">
             We ensure that our products meet UCMT's exacting <br/> standards. 
             because we care about your safety and business.
             </p>
@@ -173,7 +221,7 @@ function Products() {
 
       <div className="min-h-screen bg-[#f5f8f3] px-4 py-12">
         <div className="max-w-7xl mx-auto flex justify-between items-center flex-wrap mb-8 px-2">
-          <h1 className="text-6xl sm:text-7xl font-bold text-green-900">
+          <h1 className="text-6xl sm:text-7xl font-bold text-indigo-950">
             <strong>OUR PRODUCTS</strong>
           </h1>
           <input
@@ -184,7 +232,7 @@ function Products() {
               setSearchQuery(e.target.value);
               setCurrentPage(1); 
             }}
-            className="mt-4 sm:mt-0 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-64 md:w-80"
+            className="mt-4 sm:mt-0 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full sm:w-64 md:w-80"
           />
         </div>
 
@@ -213,7 +261,7 @@ function Products() {
             <button
               onClick={goToPrevious}
               disabled={currentPage === 1}
-              className="px-3 py-1 text-sm font-medium text-green-900 border border-green-900 rounded disabled:opacity-50"
+              className="px-3 py-1 text-sm font-medium text-indigo-900 border border-indigo-900 rounded disabled:opacity-50"
             >
               Previous
             </button>
@@ -224,8 +272,8 @@ function Products() {
                 onClick={() => paginate(i + 1)}
                 className={`px-3 py-1 text-sm font-medium rounded ${
                   currentPage === i + 1
-                    ? 'bg-green-900 text-white'
-                    : 'text-green-900 border border-green-900'
+                    ? 'bg-indigo-900 text-white'
+                    : 'text-indigo-900 border border-indigo-900'
                 }`}
               >
                 {i + 1}
@@ -235,7 +283,7 @@ function Products() {
             <button
               onClick={goToNext}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 text-sm font-medium text-green-900 border border-green-900 rounded disabled:opacity-50"
+              className="px-3 py-1 text-sm font-medium text-indigo-900 border border-indigo-900 rounded disabled:opacity-50"
             >
               Next
             </button>
@@ -243,20 +291,31 @@ function Products() {
         )}
       </div>
 
-      {selectedProduct && (
+     {selectedProduct && (
   <dialog id="product_modal" className="modal modal-open" onClick={() => setSelectedProduct(null)}>
     <div className="modal-box max-w-2xl" onClick={(e) => e.stopPropagation()}>
       <h3 className="font-bold text-xl mb-4 text-center">{selectedProduct.name}</h3>
-      
+
       <img
         src={selectedProduct.image}
         alt={selectedProduct.name}
         className="rounded mb-2 mx-auto max-h-[400px] w-full object-contain"
       />
-      
+
       <p className="text-gray-600 mt-4 text-sm text-justify">
         {selectedProduct.description}
       </p>
+
+      {selectedProduct.sizes && (
+        <div className="mt-4">
+          <h4 className="font-semibold text-indigo-900">Available Sizes:</h4>
+          <ul className="list-disc list-inside text-sm text-gray-700 mt-2 max-h-60 overflow-y-auto">
+            {selectedProduct.sizes.map((size, index) => (
+              <li key={index}>{size}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div className="modal-action">
         <button className="btn btn-sm btn-outline" onClick={() => setSelectedProduct(null)}>
@@ -266,6 +325,7 @@ function Products() {
     </div>
   </dialog>
 )}
+
 
 
       <Footer />

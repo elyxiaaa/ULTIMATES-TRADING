@@ -77,7 +77,7 @@ function FAQ() {
     <Navbar/>
     <div className="min-h-screen bg-white">
       <div className="p-10">
-      <h1 className="text-green-900 font-bold text-7xl">FAQs</h1>
+      <h1 className="text-indigo-950 font-bold text-7xl">FAQs</h1>
       </div>
 
       <div className="flex">
@@ -86,7 +86,7 @@ function FAQ() {
             <div
               key={item.category}
               className={`cursor-pointer p-2 my-1 rounded ${
-                activeCategory === item.category ? 'bg-lime-300 font-bold' : ''
+                activeCategory === item.category ? 'bg-indigo-300 font-bold' : ''
               }`}
               onClick={() => setActiveCategory(item.category)}
             >
@@ -96,7 +96,7 @@ function FAQ() {
         </aside>
 
         <main className="flex-1 p-8">
-          <h2 className="text-4xl font-extrabold text-green-900 mb-6">{activeCategory}</h2>
+          <h2 className="text-4xl font-extrabold text-indigo-900 mb-6">{activeCategory}</h2>
           <div className="space-y-4">
             {faqData
               .find((item) => item.category === activeCategory)
@@ -110,7 +110,7 @@ function FAQ() {
                     <span>{openQuestions[index] ? '▲' : '▼'}</span>
                   </div>
                   {openQuestions[index] && (
-                    <div className="mt-2 text-sm border-l border-lime-500 text-gray-600 pl-4">
+                    <div className="mt-2 text-sm border-l border-indigo-500 text-indigo-600 pl-4">
                       {q.answer}
                     </div>
                   )}

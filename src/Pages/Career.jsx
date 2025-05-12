@@ -123,11 +123,11 @@ function Career() {
         <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-green-900"><strong>BUILD YOUR</strong></span><br />
-              <span className="text-green-500"><strong>FUTURE WITH US</strong></span>
+              <span className="text-indigo-950"><strong>BUILD YOUR</strong></span><br />
+              <span className="text-yellow-500"><strong>FUTURE WITH US</strong></span>
             </h1>
-            <div className="w-32 h-1 bg-green-500 my-4 mx-auto lg:mx-0" />
-            <p className="text-lg text-green-950 font-medium">
+            <div className="w-32 h-1 bg-indigo-500 my-4 mx-auto lg:mx-0" />
+            <p className="text-lg text-indigo-950 font-medium">
             At UCMT, we invest in our employees because we treat them like family.
             their growth via instruction and provide them with  
             more advantages for a better quality of life.  Send us your résumé to start your career.
@@ -143,8 +143,8 @@ function Career() {
       <div className="w-full bg-white py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-6">
-            <h2 className="text-6xl sm:text-7xl font-bold text-green-900"><strong>JOB OPENINGS</strong></h2>
-            <div className="w-44 h-1 bg-green-500 mt-2 mb-2"></div>
+            <h2 className="text-6xl sm:text-7xl font-bold text-indigo-950"><strong>JOB OPENINGS</strong></h2>
+            <div className="w-44 h-1 bg-indigo-500 mt-2 mb-2"></div>
           </div>
 
           {/* Mapping through job openings */}
@@ -154,9 +154,9 @@ function Career() {
                 onClick={() => toggleDropdown(index)}
                 className="flex justify-between cursor-pointer items-center pb-4 "
               >
-                <h3 className="text-xl font-bold text-green-700">{job.title}</h3>
+                <h3 className="text-xl font-bold text-indigo-700">{job.title}</h3>
                 <button
-                  className="text-green-500 font-bold"
+                  className="text-indigo-500 font-bold"
                 >
                   {openJob === index ? '▲' : '▼'}
                 </button>
@@ -168,7 +168,7 @@ function Career() {
                   openJob === index ? 'max-h-screen' : 'max-h-0 overflow-hidden'
                 }`}
               >
-                <div className="text-sm font-medium text-green-900">
+                <div className="text-sm font-medium text-indigo-900">
                   <h4 className="text-lg font-semibold">Requirements:</h4>
                   <ul className="list-disc list-inside mb-4">
                     {job.requirements.map((req, idx) => (
@@ -190,7 +190,7 @@ function Career() {
 
       <div className="min-h-screen flex items-center justify-center bg-[#f7f9f7] px-4 py-12" style={{ backgroundImage: 'url("/path/to/your/bg-pattern.png")', backgroundRepeat: 'repeat' }}>
       <div className="w-full max-w-2xl bg-white bg-opacity-70 p-8 rounded-md shadow-md">
-        <h2 className="text-2xl font-bold text-center text-green-800 mb-6">Apply Now</h2>
+        <h2 className="text-2xl font-bold text-center text-indigo-800 mb-6">Apply Now</h2>
         <form className="space-y-4">
           <input type="text" placeholder="Name *" className="w-full border border-gray-300 p-2 rounded " />
           
@@ -235,7 +235,7 @@ function Career() {
                 <div className="flex text-sm text-gray-600">
                   <label
                     htmlFor="file-upload"
-                    className="relative cursor-pointer text-green-700 hover:text-green-900 font-medium"
+                    className="relative cursor-pointer text-indigo-700 hover:text-indigo-900 font-medium"
                   >
                     <span>Drop files here or click to upload</span>
                     <input id="file-upload" name="file-upload" type="file" className="sr-only" />
@@ -248,7 +248,7 @@ function Career() {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-lime-700 text-white px-6 py-2 rounded hover:bg-lime-600 transition-all"
+              className="bg-indigo-700 text-white px-6 py-2 rounded hover:bg-indigo-600 transition-all"
             >
               Submit
             </button>
