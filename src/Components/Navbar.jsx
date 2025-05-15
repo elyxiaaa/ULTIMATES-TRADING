@@ -38,6 +38,10 @@ function Navbar({ activeTab }) {
     navigate('/daq');
     window.scrollTo(0, 0);
   };
+  const handleReviewsClick = () => {
+    navigate('/reviews');
+    window.scrollTo(0, 0);
+  };
  
 
   const handleLeaderboardsClick = () => {
@@ -139,6 +143,13 @@ function Navbar({ activeTab }) {
           <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
             <button onClick={handleContactClick} className="flex items-center cursor-pointer">
              Contact Us
+            </button>
+          </li>
+          </Link>
+          <Link to="/reviews">
+          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
+            <button onClick={handleReviewsClick} className="flex items-center cursor-pointer">
+             Reviews
             </button>
           </li>
           </Link>

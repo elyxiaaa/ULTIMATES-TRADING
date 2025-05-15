@@ -56,7 +56,10 @@ import SSteelShafting from '../assets/PRODUCTS/Stainless-Steel-Shafting.jpg'
 import SSteelSheets from '../assets/PRODUCTS/Stainless-Steel-Sheets-2.jpg'
 import SSteelWeldingRod from '../assets/PRODUCTS/Stainless-Steel-Welding-Rod.jpg'
 import SwivelClamp from '../assets/PRODUCTS/Swivel-Clamp.jpg'
-
+import Scafolding from '../assets/PRODUCTS/Scafolding.jpg'
+import HFrame from '../assets/PRODUCTS/H-Frame.jpg'
+import Plywood from '../assets/PRODUCTS/Plywood.jpg'
+import Insulation from '../assets/PRODUCTS/Insulation.jpg'
 import { Link } from 'react-router-dom'
 
 
@@ -80,9 +83,102 @@ const products = [
 "25mm x 6m",
   ]
 },
-  { name: "B.I. Rectangular Tube", image: RectangularTubing},
-  { name: "G.I. Square Tube", image: SquareTubing },
-  { name: "B.I. Square Tube", image: SquareTubing },
+  { name: "G.I Tubular 6m 1.5mm", image: RectangularTubing,
+    description: "G.I. Tubular, specifically with a 6-meter length and 1.5mm thickness, is a galvanized iron (G.I.) pipe or tube, commonly used for various construction and industrial applications. It's coated with zinc to prevent rusting and offers good strength and durability.",
+    sizes: [
+      "3/4 x 3/4 x 4.2kg",
+    "1 x 1 x 5.2kg",
+    "1 1/2 x 1 1/2 x 8kg",
+    "1 x 2 x 8kg",
+    "1 x 3 x 10.5kg",
+    "2 x 2 x 10.5kg",
+    "2 x 3 x 13.5kg",
+    "2 x 4 x 14.5kg",
+    "2 x 6 x 22kg",
+    "4 x 4 x 29kg",
+    ],
+  },
+  { name: "G.I Tubular 6m 1.2mm", image: SquareTubing ,
+    description: "G.I. Tubular, often shortened to GI tube, is a common construction material that's galvanized and comes in various sizes and thicknesses. A 6m (6 meters) length of G.I. Tubular with a wall thickness of 1.2mm is a specific size used in many construction and fabrication projects. ",
+    sizes: [
+      "3/4 x 3/4 x 3.2kg",
+    "1 x 1 x 4.2kg",
+    "1 1/2 x 1 1/2 x 6.2kg",
+    "1 x 2 x 6.2kg",
+    "1 x 3 x 8.5kg",
+    "2 x 2 x 8.5kg",
+    "2 x 3 x 10.5kg",
+    "2 x 4 x 12.5kg",
+    "2 x 6 x 19kg",
+    ],
+  },
+  { name: "G.I Tubular 6m 2.0mm", image: SquareTubing,
+    description: "G.I Tubular 6m 2.0mm refers to a galvanized iron (G.I) steel tube, specifically with a length of 6 meters and a wall thickness of 2.0 millimeters. This type of tubular steel is commonly used in various construction and industrial applications due to its strength, durability, and resistance to corrosion. ",
+    sizes: [
+      "1 x 1 x 7kg",
+    "1 1/2 x 1 1/2 x 11kg",
+    "1 x 2 x 10.5kg",
+    "2 x 2 x 14.5kg",
+    "2 x 3 x 18kg",
+    "2 x 4 x 21.5kg",
+    "2 x 6 x 29kg",
+    "3 x 3 x 26kg",
+    "4 x 4 x 37kg",
+    ],
+   },
+   { name: "Scaffolding Set S20", image: Scafolding,
+    description: "a basic scaffolding kit or system, likely for small to medium-sized projects. It would typically include components for building a simple, supported scaffolding structure, possibly for light to medium-duty tasks. The 'S2' likely indicates a specific model or size designation within a scaffolding manufacturer's product line.",
+    sizes: [
+      "1.7m x 1.2m (21kgs)",
+    "1.2m x 1.2m (16kgs)",
+    "0.9m x 1.2m (14kgs)",
+    "1.5m x 1.2m (20kgs)",
+    ],
+  },
+  { name: "Scaffolding Set S40", image: Scafolding,
+    description: "G.I. Tubular, specifically with a 6-meter length and 1.5mm thickness, is a galvanized iron (G.I.) pipe or tube, commonly used for various construction and industrial applications. It's coated with zinc to prevent rusting and offers good strength and durability.",
+    sizes: [
+      "1.7m x 1.2m (25kgs)",
+    "1.2m x 1.2m (19.5kgs)",
+    "0.9m x 1.2m (16kgs)",
+    ],
+  },
+  { name: "H Frame Only S20", image: HFrame,
+    description: "G.I. Tubular, specifically with a 6-meter length and 1.5mm thickness, is a galvanized iron (G.I.) pipe or tube, commonly used for various construction and industrial applications. It's coated with zinc to prevent rusting and offers good strength and durability.",
+    sizes: [
+      "1.7m x 1.2m ",
+    "1.2m x 1.2m ",
+    "0.9m x 1.2m ",
+    "1.5m x 1.2m ",
+    ],
+  },
+  { name: "H Frame Only S40", image: HFrame,
+    description: "G.I. Tubular, specifically with a 6-meter length and 1.5mm thickness, is a galvanized iron (G.I.) pipe or tube, commonly used for various construction and industrial applications. It's coated with zinc to prevent rusting and offers good strength and durability.",
+    sizes: [
+      "1.7m x 1.2m  ",
+    "1.2m x 1.2m ",
+    "0.9m x 1.2m  ",
+    "Catwalk 169cm x 40cm",
+    "Ladder 239cm x 47 cm (7 steps)",
+    "Crossbrace 1.7 Plain",
+    "Crossbrace 1.2 YLW",
+    "Crossbrace 0.9 RED",
+    "Joint Pin",
+    "Caster Wheel 6 inch",
+    "Caster Wheel 8 inch",
+    ],
+  },
+  {
+    name: "Insulation",
+    image: Insulation,
+    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    sizes: [
+  "5mm Single Face",
+  "5mm Double Face",
+  "10mm Single Face",
+  "10mm Double Face",
+    ]
+  },
   { name: "B.I Round Tube", image: BIRoundTubing },
   { name: "Equal Angle Bar", image: AngleBars },
   { name: "B.I. Sheet", image: BISheet },
@@ -94,37 +190,37 @@ const products = [
   description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
   sizes: [
     "1/2 x 2.8Kg x 6mtrs S20 1.0mm",
-"1/2 x 3.8Kg x 6mtrs S20 1.2mm",
-"1/2 x 4.2Kg x 6mtrs S40 1.5mm",
-"3/4 x 3.9Kg x 6mtrs S20 1.0mm",
-"3/4 x 4.8Kg x 6mtrs S20 1.3mm",
-"3/4 x 5.5Kg x 6mtrs S40 1.5mm",
-"3/4 x 7Kg x 6mtrs S40 2.0mm",
-"1 inch x 5.5Kg x 6mtrs S20 1.2mm",
-"1 inch x 6Kg x 6mtrs S20 1.3mm",
-"1 inch x 7Kg x 6mtrs S20 1.5mm",
-"1 inch x 9Kg x 6mtrs S40 2.0mm",
-"1 1/4 x 8Kg x 6mtrs S20 1.3mm",
-"1 1/4 x 9Kg x 6mtrs S20 1.4mm",
-"1 1/4 x 10.7Kg x 6mtrs S40 1.7mm",
-"1 1/4 x 11.6Kg x 6mtrs S40 2.0mm",
-"1 1/2 x 7Kg x 6mtrs S20 1.0mm",
-"1 1/2 x 8Kg x 6mtrs S20 1.2mm",
-"1 1/2 x 9Kg x 6mtrs S20 1.3mm",
-"1 1/2 x 11Kg x 6mtrs S20 1.5mm",
-"1 1/2 x 13Kg x 6mtrs S40 1.7mm",
-"1 1/2 x 14Kg x 6mtrs S40 1.9mm",
-"1 1/2 x 16Kg x 6mtrs S40 2.3mm",
-"2 inch x 16kg x 6mtrs S20 1.7mm",
-"2 inch x 19kg x 6mtrs S40 2.3mm",
-"2 inch x 20kg x 6mtrs S40 2.8mm",
-"2 1/2 x 17kg x 6mtrs S20 1.7mm",
-"3 inch x 26kg x 6mtrs S20 2.0mm",
-"3 inch x 32kg x 6mtrs S40 2.3mm",
-"4 inch x 33kg x 6mtrs S20 2.0mm",
-"4 inch x 42kg x 6mtrs S40 2.3mm",
-  ]
-},
+  "1/2 x 3.8Kg x 6mtrs S20 1.2mm",
+  "1/2 x 4.2Kg x 6mtrs S40 1.5mm",
+  "3/4 x 3.9Kg x 6mtrs S20 1.0mm",
+  "3/4 x 4.8Kg x 6mtrs S20 1.3mm",
+  "3/4 x 5.5Kg x 6mtrs S40 1.5mm",
+  "3/4 x 7Kg x 6mtrs S40 2.0mm",
+  "1 inch x 5.5Kg x 6mtrs S20 1.2mm",
+  "1 inch x 6Kg x 6mtrs S20 1.3mm",
+  "1 inch x 7Kg x 6mtrs S20 1.5mm",
+  "1 inch x 9Kg x 6mtrs S40 2.0mm",
+  "1 1/4 x 8Kg x 6mtrs S20 1.3mm",
+  "1 1/4 x 9Kg x 6mtrs S20 1.4mm",
+  "1 1/4 x 10.7Kg x 6mtrs S40 1.7mm",
+  "1 1/4 x 11.6Kg x 6mtrs S40 2.0mm",
+  "1 1/2 x 7Kg x 6mtrs S20 1.0mm",
+  "1 1/2 x 8Kg x 6mtrs S20 1.2mm",
+  "1 1/2 x 9Kg x 6mtrs S20 1.3mm",
+  "1 1/2 x 11Kg x 6mtrs S20 1.5mm",
+  "1 1/2 x 13Kg x 6mtrs S40 1.7mm",
+  "1 1/2 x 14Kg x 6mtrs S40 1.9mm",
+  "1 1/2 x 16Kg x 6mtrs S40 2.3mm",
+  "2 inch x 16kg x 6mtrs S20 1.7mm",
+  "2 inch x 19kg x 6mtrs S40 2.3mm",
+  "2 inch x 20kg x 6mtrs S40 2.8mm",
+  "2 1/2 x 17kg x 6mtrs S20 1.7mm",
+  "3 inch x 26kg x 6mtrs S20 2.0mm",
+  "3 inch x 32kg x 6mtrs S40 2.3mm",
+  "4 inch x 33kg x 6mtrs S20 2.0mm",
+  "4 inch x 42kg x 6mtrs S40 2.3mm",
+    ]
+  },
   { name: "Accordion Plate", image: AccordionPlate },
   { name: "Barbed Wires", image: BarbedWires },
   { name: "Base Plate", image: BasePlate },
@@ -158,7 +254,35 @@ const products = [
   { name: "T Bars", image: TBars },
   { name: "Z Bars", image: ZBars },
   { name: "Perforated Sheet", image: PerforatedSheet },
-  { name: "Phenolic Board", image: Phenolic },
+  { name: "Phenolic Board", image: Phenolic,
+    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+  sizes: [
+    "CLASS A 3/4",
+  "CLASS A 1/2",
+  "CLASS B 3/4",
+  "CLASS B 1/2",
+  ],
+   },
+   { name: "Plywoods", image: Plywood,
+    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+  sizes: [
+    "Ordinary Plywood (MIC) 1/4",
+  "Ordinary Plywood (MIC) 1/2",
+  "Ordinary Plywood (MIC) 3/4",
+  "Marine Plywood (MIC) 1/4",
+  "Marine Plywood (MIC) 1/2",
+  "Marine Plywood (MIC) 3/4",
+  "ORD Plywood Local Made 1/4",
+  "ORD Plywood Local Made 1/2",
+  "ORD Plywood Local Made 3/4",
+  "Marine Plywood Local Made 1/4",
+  "Marine Plywood Local Made 1/2",
+  "Marine Plywood Local Made 3/4",
+  "ALUMINUM PLASTIC BOARDS 1/2",
+  "PLYBOARD CHINA 3/4",
+  "PLYBOARD LOCAL 3/4",
+  ],
+   },
   { name: "Purlins Connector", image: PurlinsConnector },
   { name: "Stainless Steel Bar", image: SSteelPipesFlat },
   { name: "Stainless Steel Pipe", image: SSteelPipesRound },
@@ -244,7 +368,11 @@ function Products() {
               onClick={() => setSelectedProduct(product)} 
               className="cursor-pointer transition hover:scale-105 duration-200"
             >
-              <img src={product.image} alt={product.name} className="rounded shadow-md" />
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              className="w-[999px] h-[200px] object-cover rounded shadow-md" 
+            />
               <p className="mt-2 text-center font-medium">{product.name}</p>
             </div>
             ))
@@ -291,33 +419,40 @@ function Products() {
         )}
       </div>
 
-     {selectedProduct && (
+      {selectedProduct && (
   <dialog id="product_modal" className="modal modal-open" onClick={() => setSelectedProduct(null)}>
-    <div className="modal-box max-w-2xl" onClick={(e) => e.stopPropagation()}>
-      <h3 className="font-bold text-xl mb-4 text-center">{selectedProduct.name}</h3>
+    <div className="modal-box max-w-4xl" onClick={(e) => e.stopPropagation()}>
+      <h3 className="font-bold text-2xl mb-4 text-center">{selectedProduct.name}</h3>
 
-      <img
-        src={selectedProduct.image}
-        alt={selectedProduct.name}
-        className="rounded mb-2 mx-auto max-h-[400px] w-full object-contain"
-      />
-
-      <p className="text-gray-600 mt-4 text-sm text-justify">
-        {selectedProduct.description}
-      </p>
-
-      {selectedProduct.sizes && (
-        <div className="mt-4">
-          <h4 className="font-semibold text-indigo-900">Available Sizes:</h4>
-          <ul className="list-disc list-inside text-sm text-gray-700 mt-2 max-h-60 overflow-y-auto">
-            {selectedProduct.sizes.map((size, index) => (
-              <li key={index}>{size}</li>
-            ))}
-          </ul>
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* Left Column: Image + Description */}
+        <div className="w-full md:w-1/2">
+          <img
+            src={selectedProduct.image}
+            alt={selectedProduct.name}
+            className="rounded mb-2 max-h-[300px] w-full object-contain"
+          />
+          <p className="text-gray-600 mt-2 text-mdtext-justify">
+            {selectedProduct.description}
+          </p>
         </div>
-      )}
 
-      <div className="modal-action">
+        {/* Right Column: Sizes with Left Border */}
+        <div className="w-full md:w-1/2 border-l border-gray-300 pl-6">
+          {selectedProduct.sizes && (
+            <div>
+              <h4 className="font-semibold text-indigo-900">Available Sizes:</h4>
+              <ul className="list-disc list-inside text-sm text-gray-700 mt-2 max-h-60 overflow-y-auto">
+                {selectedProduct.sizes.map((size, index) => (
+                  <li key={index}>{size}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="modal-action mt-6">
         <button className="btn btn-sm btn-outline" onClick={() => setSelectedProduct(null)}>
           Close
         </button>
@@ -325,6 +460,7 @@ function Products() {
     </div>
   </dialog>
 )}
+
 
 
 

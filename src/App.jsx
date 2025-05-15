@@ -7,6 +7,7 @@ import Locations from './Pages/Location'
 import Contact from './Pages/Contact'
 import Career from './Pages/Career'
 import FAQ from './Pages/FAQ'
+import Reviews from './Pages/Reviews'
 import { BrowserRouter, Route, Routes } from "react-router"
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/career" element={<Career />} />
           <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/Reviews" element={<Reviews />} />
         </Routes>
       </BrowserRouter>
     </>

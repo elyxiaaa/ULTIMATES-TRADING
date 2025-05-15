@@ -30,25 +30,25 @@ const slides = [
   {
     title: "CONSULTATIVE TEAM",
     description:
-      "We assist in every step of the process, making sure that our customer has confidence transacting with us from product selection until pick-up or delivery.",
+      "We assist at every stage of the process, ensuring that our customers are comfortable doing business with us from product selection to pick-up or delivery.",
     imgSrc: Slide1,
   },
   {
     title: "DELIVERED PROMISES",
     description:
-      "We assist in every step of the process, making sure that our customer has confidence transacting with us from product selection until pick-up or delivery.",
+      "When we reach an agreement, we follow through.  Our major motivation is to help you complete your assignment.",
     imgSrc: Slide2,
   },
   {
     title: "COMPETITIVE PRICE",
     description:
-      "We assist in every step of the process, making sure that our customer has confidence transacting with us from product selection until pick-up or delivery.",
+      "Our prices are in line with the quality of our products.  We can offer lower prices due to our large size.  We don't overquote.",
     imgSrc: Slide3,
   },
   {
     title: "SUPERIOR QUALITY",
     description:
-      "Your safety and reputation are our concern, which is why we make sure every piece of steel passes our company’s quality standard.",
+      "We care about your safety and reputation, so we ensure that every piece of steel meets our company's quality standards.",
     imgSrc: Slide4,
   },
 ];
@@ -65,7 +65,7 @@ function Home() {
     centerMode: true, // This ensures the middle slide is always in focus
     centerPadding: '0', // Prevents padding around the focused slide
     autoplay: true, // Enables auto-slide
-    autoplaySpeed: 3000, // Auto transition every 3 seconds
+    autoplaySpeed: 5000, // Auto transition every 3 seconds
     focusOnSelect: true, // Allows clicking on the middle slide to focus it
     afterChange: (index) => setActiveIndex(index), // Update activeIndex after each slide change
     responsive: [
@@ -111,7 +111,7 @@ function Home() {
 
       {/* HERO SECTION */}
       <div className="w-full h-full bg-BG1 bg-cover bg-center relative">
-        <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
+        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
         <div className="relative z-10 flex flex-col text-white py-20 px-6 md:px-16 lg:px-36">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">

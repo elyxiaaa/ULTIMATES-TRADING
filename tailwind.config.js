@@ -13,6 +13,7 @@ export default {
              'BG3': "url('/src/assets/BG3.jpg')", 
              'BG4': "url('/src/assets/BG4.jpg')", 
              'BG5': "url('/src/assets/Gradient.jpg')", 
+             'BGHeader': "url('/src/assets/header.jpg')", 
          
      
            },
