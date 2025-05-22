@@ -1,4 +1,5 @@
 import Logo from '../assets/Logo.png'
+import { Link, useNavigate } from "react-router-dom"; 
 function Footer () {
     return (
         <>
@@ -21,15 +22,23 @@ function Footer () {
   </aside>
   <nav>
     <h6 className="font-bold text-yellow-500 text-lg">ABOUT US</h6>
-    <a className="link link-hover">Steel Product</a>
-    <a className="link link-hover">Location</a>
-    <a className="link link-hover">Careers</a>
-    <a className="link link-hover">FAQs</a>
+    <Link to="/products">
+    <p className="link link-hover">Steel Product</p>
+    </Link>
+    <Link to="/location">
+    <p className="link link-hover">Location</p>
+    </Link>
+    <Link to="/career">
+    <p className="link link-hover">Careers</p>
+    </Link>
+    <Link to="/faq">
+    <p className="link link-hover">FAQs</p>
+    </Link>
   </nav>
   <nav>
     <h6 className="font-bold text-yellow-500 text-lg">CONTACT US</h6>
-      <p>UCMT VALENZUELA</p>
-      <p>Tel No:</p>
+      <p>U.C.M.T VALENZUELA</p>
+      <p>Tel No:(+82)123123</p>
       <p>Mobile No:</p>
       <p>Email:</p>
   </nav>
