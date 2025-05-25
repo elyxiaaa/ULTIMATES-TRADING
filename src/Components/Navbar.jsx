@@ -1,165 +1,152 @@
-import  { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaHome } from "react-icons/fa";
-import { FaD, FaRankingStar } from "react-icons/fa6";
-import { FaDonate } from "react-icons/fa";
-import { MdEmojiEvents } from "react-icons/md";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { IoMdDownload } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom"; 
-import { Link as ScrollLink } from 'react-scroll';  
-import { FaList } from "react-icons/fa";
-import Icon from '../assets/Logo.png'
+import { MdOutlineProductionQuantityLimits } from "react-icons/md";
+import { FaLocationArrow } from "react-icons/fa6";
+import { MdOutlineWorkHistory } from "react-icons/md";
+import { MdQuestionMark } from "react-icons/md";
+import { IoIosCall } from "react-icons/io";
+import { VscFeedback } from "react-icons/vsc";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import Icon from '../assets/Logo.png';
 
-function Navbar({ activeTab }) {
+function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const location = useLocation(); // Using useLocation to get the current route
 
-  const handleHomeClick = () => {
-    navigate('/');
+  // Set active tab based on current location
+  const getActiveTab = () => {
+    const path = location.pathname;
+    if (path === "/") return "home";
+    if (path === "/products") return "products";
+    if (path === "/location") return "location";
+    if (path === "/career") return "career";
+    if (path === "/contact") return "contact";
+    if (path === "/faq") return "faq";
+    if (path === "/reviews") return "reviews";
+    return ""; // Default to empty if no match
+  };
+
+  const activeTab = getActiveTab(); // Get active tab based on current path
+
+  const handleClick = (route) => {
+    navigate(route);
     window.scrollTo(0, 0);
   };
-  const handleProductsClick = () => {
-    navigate('/products');
-    window.scrollTo(0, 0);
-  };
-  const handleLocationClick = () => {
-    navigate('/location');
-    window.scrollTo(0, 0);
-  };
-  const handleCareerClick = () => {
-    navigate('/career');
-    window.scrollTo(0, 0);
-  };
-  const handleContactClick = () => {
-    navigate('/contact');
-    window.scrollTo(0, 0);
-  };
-  const handleFaqClick = () => {
-    navigate('/daq');
-    window.scrollTo(0, 0);
-  };
-  const handleReviewsClick = () => {
-    navigate('/reviews');
-    window.scrollTo(0, 0);
-  };
- 
 
-  const handleLeaderboardsClick = () => {
-
-    navigate('/');
-
-
-    setTimeout(() => {
-      const leaderboardsLink = document.getElementById('leaderboards-section');
-      if (leaderboardsLink) {
-        leaderboardsLink.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 500);
-  };
-
-  const handleCashShopClick = () => {
-    navigate('/donation');
-  
-    setTimeout(() => {
-      const cashShopLink = document.getElementById('cash-section');
-      if (cashShopLink) {
-        cashShopLink.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 500); // Delay to ensure the new page is fully loaded
-  };
-
-  const handlePackageClick = () => {
-    navigate('/donation');
-  
-    setTimeout(() => {
-      const packageLink = document.getElementById('package-section');
-      if (packageLink) {
-        packageLink.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 500); // Delay to ensure the new page is fully loaded
-  };
-  
-
+  // Conditional classes for underline and text color based on active tab
   const getUnderlineClass = (tabName) =>
     activeTab === tabName
-      ? "absolute left-0 top-8 inline-block w-full h-[2px] bg-red-500 shadow-[0px_0px_10px_2px_rgba(255,0,0,0.8)] transition-all duration-300"
-      : "absolute left-0 top-8 inline-block w-0 h-[1px] bg-transparent group-hover:w-full group-hover:bg-red-500 group-hover:shadow-[0px_0px_10px_2px_rgba(255,0,0,0.8)] transition-all duration-300";
+      ? "absolute left-0 bottom-0 inline-block w-full h-[2px] bg-yellow-500 transition-all duration-300"
+      : "absolute left-0 bottom-0 inline-block w-0 h-[2px] bg-transparent group-hover:w-full group-hover:bg-yellow-500 transition-all duration-300";
 
-      const getTextClass = (tabName) =>
-        activeTab === tabName ? "text-red-500" : "text-white";
+  const getTextClass = (tabName) =>
+    activeTab === tabName ? "text-yellow-400" : "text-white";
 
   return (
     <nav className="bg-indigo-950 text-white font-COP1 px-6 py-10 sticky top-0 z-50">
-    <div className="container mx-auto flex justify-between items-center relative">
-      {/* Logo (Visible on large screens only) */}
-      <div className="absolute left-44   top-1/2 transform -translate-y-1/2 hidden lg:block">
-        <Link to="/">
-          <img
-            src={Icon}
-            alt="Logo"
-            className="h-20 w-auto " // Adjust size as needed
-          />
-        </Link>
-      </div>
+      <div className="container mx-auto flex justify-between items-center relative">
+        {/* Logo */}
+        <div className="absolute left-44 top-1/2 transform -translate-y-1/2 hidden lg:block">
+          <Link to="/">
+            <img
+              src={Icon}
+              alt="Logo"
+              className="h-20 w-auto"
+            />
+          </Link>
+        </div>
 
-      {/* Navigation Links - Desktop Only */}
-      <div className="hidden lg:flex justify-end mr-20 flex-1">
-        <ul className="flex gap-10 items-center text-xl font-medium">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-            <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
-             Home
-            </button>
-          </li>
-          <Link to="/products">
-            <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-              <button onClick={handleProductsClick} className="flex items-center cursor-pointer">
-              Products
+        {/* Navigation Links - Desktop */}
+        <div className="hidden lg:flex justify-end mr-20 flex-1">
+          <ul className="flex gap-10 items-center text-xl font-medium">
+            {/* Home Link */}
+          <li className="relative flex items-center gap-2 cursor-pointer group">
+              <button
+                onClick={() => handleClick('/')}
+                className={`flex items-center cursor-pointer ${getTextClass('home')}`}
+              >
+                <FaHome className="mr-1" />
+                Home
               </button>
+              <span className={getUnderlineClass('home')} />
             </li>
-          </Link>
-          <Link to="/location">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-            <button onClick={handleLocationClick} className="flex items-center cursor-pointer">
-             Location
-            </button>
-          </li>
-          </Link>
-          <Link to="/career">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-            <button onClick={handleCareerClick} className="flex items-center cursor-pointer">
-             Careers
-            </button>
-          </li>
-          </Link>
 
-          <Link to="/faq">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-            <button onClick={handleFaqClick} className="flex items-center cursor-pointer">
-             FAQs
-            </button>
-          </li>
-          </Link>
-          <Link to="/contact">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-            <button onClick={handleContactClick} className="flex items-center cursor-pointer">
-             Contact Us
-            </button>
-          </li>
-          </Link>
-          <Link to="/reviews">
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-            <button onClick={handleReviewsClick} className="flex items-center cursor-pointer">
-             Reviews
-            </button>
-          </li>
-          </Link>
-            
+            {/* Products Link */}
+            <li className="relative flex items-center gap-2 cursor-pointer group">
+              <button
+                onClick={() => handleClick('/products')}
+                className={`flex items-center cursor-pointer ${getTextClass('products')}`}
+              >
+                <MdOutlineProductionQuantityLimits className="mr-1" />
+                Products
+              </button>
+              <span className={getUnderlineClass('products')} />
+            </li>
+
+            {/* Location Link */}
+            <li className="relative flex items-center gap-2 cursor-pointer group">
+              <button
+                onClick={() => handleClick('/location')}
+                className={`flex items-center cursor-pointer ${getTextClass('location')}`}
+              >
+                 <FaLocationArrow className="mr-1" /> 
+                Location
+              </button>
+              <span className={getUnderlineClass('location')} />
+            </li>
+
+            {/* Careers Link */}
+            <li className="relative flex items-center gap-2 cursor-pointer group">
+              <button
+                onClick={() => handleClick('/career')}
+                className={`flex items-center cursor-pointer ${getTextClass('career')}`}
+              >
+               <MdOutlineWorkHistory className="mr-1" /> 
+                Careers
+              </button>
+              <span className={getUnderlineClass('career')} />
+            </li>
+
+            {/* FAQ Link */}
+            <li className="relative flex items-center gap-2 cursor-pointer group">
+              <button
+                onClick={() => handleClick('/faq')}
+                className={`flex items-center cursor-pointer ${getTextClass('faq')}`}
+              >
+               <MdQuestionMark className="mr-1" /> 
+                FAQs
+              </button>
+              <span className={getUnderlineClass('faq')} />
+            </li>
+
+            {/* Contact Link */}
+            <li className="relative flex items-center gap-2 cursor-pointer group">
+              <button
+                onClick={() => handleClick('/contact')}
+                className={`flex items-center cursor-pointer ${getTextClass('contact')}`}
+              >
+              <IoIosCall className="mr-1" /> 
+                Contact Us
+              </button>
+              <span className={getUnderlineClass('contact')} />
+            </li>
+
+            {/* Reviews Link */}
+            <li className="relative flex items-center gap-2 cursor-pointer group">
+              <button
+                onClick={() => handleClick('/reviews')}
+                className={`flex items-center cursor-pointer ${getTextClass('reviews')}`}
+              >
+                 <VscFeedback className="mr-1" /> 
+                Reviews
+              </button>
+              <span className={getUnderlineClass('reviews')} />
+            </li>
           </ul>
         </div>
 
-        
-
-        {/* Mobile and Tablet Menu Button */}
+        {/* Mobile Menu */}
         <div className="lg:hidden flex items-center">
           <button
             className="text-white"
@@ -183,38 +170,36 @@ function Navbar({ activeTab }) {
         </div>
       </div>
 
-      {/* Mobile and Tablet Menu Dropdown */}
+      {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
         <ul className="lg:hidden bg-indigo-950 text-white font-COP1 mt-2 p-4 space-y-3 shadow-lg rounded">
-          {/* Home Button with React Scroll */}
-          
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-            <button onClick={handleHomeClick} className="flex items-center w-full hover:bg-greyellowen-400 hover:text-white p-2 cursor-pointer">
-             Home
-            </button>
-          </li>
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-          <button onClick={handleProductsClick} className="flex items-center w-full hover:bg-yellow-400 hover:text-white p-2 cursor-pointer">
-             Products
+          <li className="relative flex items-center gap-2 cursor-pointer group">
+            <button onClick={() => handleClick('/')} className="flex items-center w-full p-2">
+              Home
             </button>
           </li>
 
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-          <button onClick={handleLocationClick} className="flex items-center w-full hover:bg-yellow-400 hover:text-white p-2 cursor-pointer">
-             Location
+          <li className="relative flex items-center gap-2 cursor-pointer group">
+            <button onClick={() => handleClick('/products')} className="flex items-center w-full p-2">
+              Products
             </button>
           </li>
 
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-          <button onClick={handleFaqClick} className="flex items-center w-full hover:bg-yellow-400 hover:text-white p-2 cursor-pointer">
-             FAQs
+          <li className="relative flex items-center gap-2 cursor-pointer group">
+            <button onClick={() => handleClick('/location')} className="flex items-center w-full p-2">
+              Location
             </button>
           </li>
 
+          <li className="relative flex items-center gap-2 cursor-pointer group">
+            <button onClick={() => handleClick('/faq')} className="flex items-center w-full p-2">
+              FAQs
+            </button>
+          </li>
 
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-yellow-400 group">
-          <button onClick={handleContactClick} className="flex items-center w-full hover:bg-yellow-400 hover:text-white p-2 cursor-pointer">
-             Contacts
+          <li className="relative flex items-center gap-2 cursor-pointer group">
+            <button onClick={() => handleClick('/contact')} className="flex items-center w-full p-2">
+              Contacts
             </button>
           </li>
         </ul>

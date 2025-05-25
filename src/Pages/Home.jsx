@@ -53,9 +53,36 @@ const slides = [
   },
 ];
 
+
 function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+        }
+      },
+      { threshold: 0.5 } // This means the section needs to be at least 50% visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    // Cleanup observer when the component is unmounted
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const sectionRef = useRef(null);
   const settings = {
     dots: false,
     infinite: true,
@@ -110,71 +137,91 @@ function Home() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <div className="w-full h-full bg-BG1 bg-cover bg-center relative">
-        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+    <div ref={sectionRef} className="w-full h-full bg-BG1 bg-cover bg-center relative">
+      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-        <div className="relative z-10 flex flex-col text-white py-20 px-6 md:px-16 lg:px-36">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <strong>BUILDING <br />
+      <div className="relative z-10 flex flex-col text-white py-20 px-6 md:px-16 lg:px-36">
+        <h1
+          className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 transition-all duration-1000 ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`}
+        >
+          <strong>BUILDING <br />
             EXCELLENCE AND <br />
             INTEGRITY.</strong>
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl max-w-2xl mb-6">
-            At our core, we are dedicated to delivering top-tier steel solutions. Our unwavering commitment to quality and customer satisfaction ensures that every project you undertake is built on a foundation of trust and reliability.
+        </h1>
+        <p
+          className={`text-lg sm:text-xl md:text-2xl max-w-2xl mb-6 transition-all duration-1000 ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`}
+        >
+          At our core, we are dedicated to delivering top-tier steel solutions. Our unwavering commitment to quality and customer satisfaction ensures that every project you undertake is built on a foundation of trust and reliability.
+        </p>
+        <button
+          className={`w-44 font-bold bg-indigo-900 text-white hover:text-white hover:bg-indigo-500 py-4 px-6 rounded-md transition-all duration-1000 ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`}
+        >
+          Learn More
+        </button>
+      </div>
+    </div>
+    
+ <div className="w-full py-10 bg-BG2 bg-cover bg-center bg-no-repeat">
+      <div className="flex justify-center lg:justify-start px-4 sm:px-12 md:px-16 lg:px-24 xl:px-44">
+        <h1
+          ref={sectionRef}
+          className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center lg:text-left leading-tight transition-all duration-1000 ${
+            isInView ? 'animate-fade-in' : ''
+          }`}
+        >
+          <span className="text-indigo-950 font-bold">
+            <strong>MORE THAN</strong>
+          </span>
+          <br />
+          <span className="text-yellow-500 font-bold">
+            <strong>JUST STEEL</strong>
+          </span>
+        </h1>
+      </div>
+
+      {/* SLIDER */}
+      <div className="flex flex-col-reverse lg:flex-row items-center gap-10 px-6 md:px-12 lg:px-24 xl:px-44 mt-12">
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-indigo-950 font-bold mb-6">
+            {slides[activeSlide].title}
+          </h2>
+          <p className="text-lg sm:text-xl md:text-2xl text-black">
+            {slides[activeSlide].description}
           </p>
-          <button className="w-44 font-bold bg-indigo-900 text-white hover:text-white hover:bg-indigo-500 py-4 px-6 rounded-md">
-            Learn More
+        </div>
+
+        <div className="relative w-full lg:w-1/2">
+          <button
+            onClick={() =>
+              setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length)
+            }
+            className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-indigo-500 text-white ml-2 p-3 rounded-full hover:bg-indigo-700 transition"
+          >
+            <GrPrevious size={24} />
+          </button>
+
+          <img
+            src={slides[activeSlide].imgSrc}
+            alt={slides[activeSlide].title}
+            className="w-full rounded-lg shadow-lg"
+          />
+
+          {/* NEXT */}
+          <button
+            onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)}
+            className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-indigo-500 text-white mr-2 p-3 rounded-full hover:bg-indigo-700 transition"
+          >
+            <GrNext size={24} />
           </button>
         </div>
       </div>
-
-{/* SLIDE SECTION */}
-<div className="w-full py-10 bg-BG2 bg-cover bg-center bg-no-repeat">
-  <div className="flex justify-center lg:justify-start  px-4 sm:px-12 md:px-16 lg:px-24 xl:px-44">
-    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center lg:text-left leading-tight">
-      <span className="text-indigo-950 font-bold"><strong>MORE THAN</strong></span> <br />
-      <span className="text-yellow-500 font-bold"><strong>JUST STEEL</strong></span>
-    </h1>
-  </div>
-
-  {/* SLIDER */}
-  <div className="flex flex-col-reverse lg:flex-row items-center gap-10 px-6 md:px-12 lg:px-24 xl:px-44 mt-12">
-    <div className="w-full lg:w-1/2 text-center lg:text-left">
-      <h2 className="text-3xl sm:text-4xl md:text-5xl text-indigo-950 font-bold mb-6">
-        {slides[activeSlide].title}
-      </h2>
-      <p className="text-lg sm:text-xl md:text-2xl text-black">
-        {slides[activeSlide].description}
-      </p>
     </div>
-
-    <div className="relative w-full lg:w-1/2">
-      <button
-        onClick={() =>
-          setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length)
-        }
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-indigo-500 text-white ml-2 p-3 rounded-full hover:bg-indigo-700 transition"
-      >
-        <GrPrevious size={24} />
-      </button>
-
-      <img
-        src={slides[activeSlide].imgSrc}
-        alt={slides[activeSlide].title}
-        className="w-full rounded-lg shadow-lg"
-      />
-
-      {/* NEXT */}
-      <button
-        onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)}
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-indigo-500 text-white mr-2 p-3 rounded-full hover:bg-indigo-700 transition"
-      >
-        <GrNext size={24} />
-      </button>
-    </div>
-  </div>
-</div>
-
 
       {/* PRODUCT SHOWCASE */}
       <div className="w-full bg-white py-16">

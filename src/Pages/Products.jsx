@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from "react";
 import Guarantee from '../assets/guarantee.jpg'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
@@ -539,29 +539,75 @@ function Products() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const goToPrevious = () => currentPage > 1 && setCurrentPage(currentPage - 1);
   const goToNext = () => currentPage < totalPages && setCurrentPage(currentPage + 1);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
   return (
     <>
     <title>High Quality Products</title>
       <Navbar />
-      <div className="w-full bg-white py-16">
-        <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-indigo-950"><strong>THE U.C.M.T</strong></span><br />
-              <span className="text-yellow-500"><strong>GUARANTEE</strong></span>
-            </h1>
-            <div className="w-32 h-1 bg-indigo-950 my-4 mx-auto lg:mx-0" />
-            <p className="text-lg text-indigo-950 font-medium">
-            We ensure that our products meet UCMT's exacting <br/> standards. 
-            because we care about your safety and business.
-            </p>
-          </div>
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <img src={Guarantee} alt="TKL Guarantee" className="rounded shadow-lg" />
-          </div>
+ <div ref={sectionRef} className="w-full bg-white py-16">
+      <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
+        {/* Text Section */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <h1
+            className={`text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-tight transition-all duration-1000 ${
+              isInView ? 'animate-slide-right animate-fade-in' : ''
+            }`}
+          >
+            <span className="text-indigo-950">
+              <strong>THE U.C.M.T</strong>
+            </span>
+            <br />
+            <span className="text-yellow-500">
+              <strong>GUARANTEE</strong>
+            </span>
+          </h1>
+          <div className={`w-32 h-1 bg-indigo-950 my-4 mx-auto lg:mx-0 ${
+              isInView ? 'animate-slide-right animate-fade-in' : ''
+            }`} />
+          <p
+            className={`text-lg text-indigo-950 font-medium transition-all duration-1000 ${
+              isInView ? 'animate-slide-right animate-fade-in' : ''
+            }`}
+          >
+            We ensure that our products meet UCMT's exacting
+            <br /> standards because we care about your safety and business.
+          </p>
+        </div>
+
+        {/* Image Section */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <img
+            src={Guarantee}
+            alt="TKL Guarantee"
+            className={`rounded shadow-lg transition-all duration-1000`}
+          />
         </div>
       </div>
+    </div>
 
       <div className="min-h-screen bg-[#f5f8f3] px-4 py-12">
         <div className="max-w-7xl mx-auto flex justify-between items-center flex-wrap mb-8 px-2">
@@ -591,7 +637,7 @@ function Products() {
             <img 
               src={product.image} 
               alt={product.name} 
-              className="w-[999px] h-[200px] object-cover rounded shadow-md" 
+              className="w-[999px] h-[200px] object-cover rounded shadow-md " 
             />
               <p className="mt-2 text-center font-medium">{product.name}</p>
             </div>
