@@ -1,19 +1,52 @@
-import React from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from "react-router-dom"; 
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer'
 
 function Location() {
+
+   const [isInView, setIsInView] = useState(false);
+     useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+          } else {
+            setIsInView(false);
+          }
+        },
+        { threshold: 0.5 } 
+      );
+  
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current);
+      }
+      return () => {
+        if (sectionRef.current) {
+          observer.unobserve(sectionRef.current);
+        }
+      };
+    }, []);
+  
+    const sectionRef = useRef(null);
   return (
     <>
       <Navbar />
-      <div className="container mx-auto py-12 px-4 md:px-12">
-        <h2 className="text-6xl font-bold text-indigo-900 mb-6"><strong>LOCATIONS</strong></h2>
+      <div ref={sectionRef} className="container mx-auto py-12 px-4 md:px-12">
+        <h2
+         className={`text-6xl font-bold text-indigo-900 mb-6 ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`}><strong>LOCATIONS</strong></h2>
         <div className="flex flex-col md:flex-row gap-8">
           <div className="w-full md:w-1/2">
             <div>
-              <h3 className="text-2xl font-semibold text-indigo-600 mb-4">Store Locations</h3>
-              <div className="flex flex-col space-y-4">
-                <div className="p-4 bg-white shadow-md rounded-lg">
+              <h3 className={`text-2xl font-semibold text-indigo-600 mb-4  ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`}>Store Locations</h3>
+              <div className={`flex flex-col space-y-4  ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`}>
+                <div className="p-4 bg-white shadow-md rounded-lg"  >
                   <p className="font-semibold text-xl">ULTIMATES CONSTRUCTION MATERIALS TRADING</p>
                   <p className="text-gray-700">243c Aster St. De Castro Subd. Paso De Blas Valenzuela City</p>
                   <a
@@ -29,8 +62,12 @@ function Location() {
             </div>
 
             <div className="mt-8">
-              <h3 className="text-2xl font-semibold text-indigo-600 mb-4">Warehouse Locations</h3>
-              <div className="flex flex-col space-y-4">
+              <h3 className={`text-2xl font-semibold text-indigo-600 mb-4  ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`}>Warehouse Locations</h3>
+              <div className={`flex flex-col space-y-4  ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          } `}>
                 <div className="p-4 bg-white shadow-md rounded-lg">
                   <p className="font-semibold text-xl">Warehouse 1</p>
                   <p className="text-gray-700">Valenzuela</p>

@@ -62,6 +62,9 @@ import Plywood from '../assets/PRODUCTS/Plywood.jpg'
 import Insulation from '../assets/PRODUCTS/Insulation.jpg'
 import CPurlins from '../assets/PRODUCTS/GI-C-Purlins.jpg'
 import Turnbuckle from '../assets/PRODUCTS/Turnbuckle.jpg'
+import BaseJack from '../assets/PRODUCTS/Base-Jack.jpg'
+import UHead from '../assets/PRODUCTS/UHead.jpg'
+import ShoringJack from '../assets/PRODUCTS/ShoringJack.jpg'
 import { Link } from 'react-router-dom'
 
 
@@ -305,6 +308,15 @@ const products = [
     ],
    },
   { name: "Base Plate", image: BasePlate },
+     { name: "Base Jack", image: BaseJack,
+    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    sizes: [
+  "27 x 400mm 2.2kg",
+  "27 x 600mm 3.0kg",
+  "32 x 400mm 2.7kg",
+  "32 x 600mm 3.5kg",
+    ],
+   },
   { name: "B.I and G.I Z-Purlin", image: BIZPurlins },
   { name: "G.I C-Purins", image: CPurlins,
     description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
@@ -409,6 +421,16 @@ const products = [
   "BI 4mm",
     ],
    },
+      { name: "Shoring Jack", image: ShoringJack,
+    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    sizes: [
+  "3.4m full ext S20 (10kgs)",
+  "3.4m full ext S40 (10.5kgs)",
+   "3.8m full ext S40 (11kgs)",
+  "4.5m full ext S40 (14kgs)",
+   "5.5m full ext S40 (16.5kgs)",
+    ],
+   },
   { name: "Carrying Channel", image: CarryingChannel },
   { name: "Combat Wires", image: CombatWires },
   { name: "Cyclone Wires", image: CycloneWires,
@@ -441,6 +463,15 @@ const products = [
   { name: "G.I Wires", image: GIWire },
   { name: "I Bars", image: IBars },
   { name: "T Bars", image: TBars },
+    { name: "U Head Jack", image: UHead,
+    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    sizes: [
+  "27 x 400mm 2.4kg",
+  "27 x 600mm 3.1kg",
+  "32 x 400mm 2.8kg",
+  "32 x 600mm 3.8kg",
+    ],
+   },
   { name: "Z Bars", image: ZBars },
   { name: "Perforated Sheet", image: PerforatedSheet },
   { name: "Phenolic Board", image: Phenolic,

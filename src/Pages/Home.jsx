@@ -67,14 +67,12 @@ function Home() {
           setIsInView(false);
         }
       },
-      { threshold: 0.5 } // This means the section needs to be at least 50% visible
+      { threshold: 0.5 } 
     );
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
-    // Cleanup observer when the component is unmounted
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
