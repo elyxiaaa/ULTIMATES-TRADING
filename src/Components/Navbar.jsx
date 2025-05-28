@@ -52,7 +52,7 @@ function Navbar() {
             <img
               src={Icon}
               alt="Logo"
-              className="h-20 w-auto"
+              className="h-28 w-auto"
             />
           </Link>
         </div>

@@ -11,7 +11,7 @@ function Footer () {
                className="h-16 items-center w-auto mt-3"
              />
     <p className="text-yellow-500 font-bold">
-      ULTIMATES CONSTRUCTION TRADING CORP.  
+      ULTIMATES CONSTRUCTION MATERIALS TRADING  
     </p>
     <p>243 Aster St. cor. Magnolia St. De Castro Subd. <br/> Paso De Blas Valenzuela City, Valenzuela, Philippines</p>
 
@@ -37,17 +37,15 @@ function Footer () {
   </nav>
   <nav>
     <h6 className="font-bold text-yellow-500 text-lg">CONTACT US</h6>
-      <p>U.C.M.T VALENZUELA</p>
-      <p>Tel No:(+82)123123</p>
+      <p>ULTIMATES CONSTRUCTION MATERIALS TRADING  </p>
+      <p>Tel No: 700 66162</p>
       <p>Mobile No:</p>
-      <p>Email:</p>
+      <p>Email: ultimatesconstructions@gmail.com</p>
   </nav>
   <nav>
     <h6 className="font-bold text-yellow-500 text-lg">CUSTOMER SERVICE</h6>
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
+    <p className="">Our Facebook Page :</p> 
+    <a href="https://www.facebook.com/profile.php?id=100079907529122"  className=" link link-hover hover:text-blue-400">ULTIMATES CONSTRUCTION MATERIALS TRADING</a>
   </nav>
 
 </footer>

@@ -176,6 +176,62 @@ const faqData = [
     ],
   },
 
+  {
+    category: 'Locations',
+    questions: [
+      {
+        question: 'Where are your warehouse locations?',
+        answer: (
+          <>
+          U.C.M.T Valenzuela Warehouse <br/>
+243c Aster St. De Castro Subd. Paso De Blas Valenzuela City
+          </>
+        ),
+      },
+    ],
+  },
+
+    {
+    category: 'Operating Hours',
+    questions: [
+      {
+        question: 'What is your operating hours?',
+        answer: (
+          <>
+          Our office and warehouses are open from Mondays to Saturdays, 8AM to 6PM, except holidays.
+          <br/>
+          <br/>
+          U.C.M.T Valenzuela
+          <br/>
+          Monday to Saturday 8AM to 5PM
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    category: 'Warehouse Visit',
+    questions: [
+      {
+        question: 'Can I visit your warehouse?',
+        answer: (
+          <>
+          Customers can drop by our warehouse in Valenzuela
+          <br/>
+          <br/>
+          Reach out to our sales team for warehouse appointment:
+          <br/>
+          Trunkline: (02) 8588 1155
+          <br/>
+          Mobile: 0917 834 8581 <br/>
+          Viber: 0933 820 2726 <br/>
+          Email: sales@tkl.com.ph
+          </>
+        ),
+      },
+    ],
+  },
+
 
 ];
 
@@ -195,7 +251,7 @@ function FAQ() {
         <>
     <Navbar/>
     <div className="min-h-screen bg-white">
-    <div className="bg-BGHeader w-full h-full p-10">
+    <div className="w-full h-full p-10">
     <h1 className="text-indigo-950 font-bold text-7xl ">FAQs</h1>
   </div>
 

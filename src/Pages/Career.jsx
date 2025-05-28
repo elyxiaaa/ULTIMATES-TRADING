@@ -1,10 +1,35 @@
-import React, { useState } from 'react'
+import { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from "react-router-dom"; 
 import Guarantee from '../assets/guarantee.jpg'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 
 function Career() {
   const [openJob, setOpenJob] = useState(null)
+    const [isInView, setIsInView] = useState(false);
+     useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+          } else {
+            setIsInView(false);
+          }
+        },
+        { threshold: 0.5 } 
+      );
+  
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current);
+      }
+      return () => {
+        if (sectionRef.current) {
+          observer.unobserve(sectionRef.current);
+        }
+      };
+    }, []);
+  
+    const sectionRef = useRef(null);
 
   const toggleDropdown = (index) => {
     setOpenJob(openJob === index ? null : index)
@@ -119,15 +144,21 @@ function Career() {
     <>
     <title>Careers - UCMT Corporation</title>
       <Navbar />
-      <div className="w-full bg-white py-16">
+      <div ref={sectionRef} className="w-full bg-white py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className={ `text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-tight ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`}>
               <span className="text-indigo-950"><strong>BUILD YOUR</strong></span><br />
               <span className="text-yellow-500"><strong>FUTURE WITH US</strong></span>
             </h1>
-            <div className="w-32 h-1 bg-indigo-500 my-4 mx-auto lg:mx-0" />
-            <p className="text-lg text-indigo-950 font-medium">
+            <div className={`w-32 h-1 bg-indigo-500 my-4 mx-auto lg:mx-0 ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`} />
+            <p className={`text-lg text-indigo-950 font-medium ${
+            isInView ? 'animate-slide-right animate-fade-in' : ''
+          }`}>
             At UCMT, we invest in our employees because we treat them like family.
             their growth via instruction and provide them with  
             more advantages for a better quality of life.  Send us your résumé to start your career.
@@ -142,7 +173,9 @@ function Career() {
       {/* Job Openings Section */}
       <div className="w-full bg-white py-8">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-left mb-6">
+          <div className={`text-left mb-6 ${
+            isInView ? 'animate-fade-in' : ''
+          }`}>
             <h2 className="text-6xl sm:text-7xl font-bold text-indigo-950"><strong>JOB OPENINGS</strong></h2>
             <div className="w-44 h-1 bg-indigo-500 mt-2 mb-2"></div>
           </div>

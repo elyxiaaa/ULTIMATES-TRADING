@@ -69,16 +69,10 @@ import { Link } from 'react-router-dom'
 
 
 const products = [
-  { name: "Wide Flange", image: WideFlange },
-  {
-    name: "Sheet Pile",
-    image: Sheetpile,
-    description: "Used for retaining walls and foundation support in construction."
-  },
- {
-  name: "Deformed Bar",
+   {
+  name: "Deformed Bar G33",
   image: DeformedBars,
-  description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+  description: "DeformedBars is a cutting-edge concept that challenges traditional bar structures by introducing innovative designs that incorporate unique shapes and functionalities. These bars are specifically crafted to meet modern aesthetic and structural demands, offering both visual appeal and enhanced performance.",
   sizes: [
     "1/2 x 2.8Kg x 6mtrs S20 1.0mm",
 "10mm x 6m",
@@ -88,8 +82,36 @@ const products = [
 "25mm x 6m",
   ]
 },
+ {
+  name: "Deformed Bar G40",
+  image: DeformedBars,
+  description: "DeformedBars is a cutting-edge concept that challenges traditional bar structures by introducing innovative designs that incorporate unique shapes and functionalities. These bars are specifically crafted to meet modern aesthetic and structural demands, offering both visual appeal and enhanced performance.",
+  sizes: [
+    "1/2 x 2.8Kg x 6mtrs S20 1.0mm",
+"10mm x 6m",
+"12mm x 6m",
+"16mm x 6m",
+"20mm x 6m",
+"25mm x 6m",
+  ]
+},
+{
+  name: "Deformed Bar G60",
+  image: DeformedBars,
+  description: "DeformedBars is a cutting-edge concept that challenges traditional bar structures by introducing innovative designs that incorporate unique shapes and functionalities. These bars are specifically crafted to meet modern aesthetic and structural demands, offering both visual appeal and enhanced performance.",
+  sizes: [
+    "1/2 x 2.8Kg x 6mtrs S20 1.0mm",
+"10mm x 6m",
+"12mm x 6m",
+"16mm x 6m",
+"20mm x 6m",
+"25mm x 6m",
+"28mm x 6m",
+"32mm x 6m",
+  ]
+},
   { name: "G.I Tubular 6m 1.5mm", image: RectangularTubing,
-    description: "G.I. Tubular, specifically with a 6-meter length and 1.5mm thickness, is a galvanized iron (G.I.) pipe or tube, commonly used for various construction and industrial applications. It's coated with zinc to prevent rusting and offers good strength and durability.",
+    description: "G.I. Tubular 6m 1.5mm is a galvanized iron pipe, designed for construction and industrial use. Its 6-meter length and 1.5mm thickness offer durability and resistance to corrosion, making it ideal for plumbing, framing, and structural applications.",
     sizes: [
       "3/4 x 3/4 x 4.2kg",
     "1 x 1 x 5.2kg",
@@ -104,7 +126,7 @@ const products = [
     ],
   },
   { name: "G.I Tubular 6m 1.2mm", image: SquareTubing ,
-    description: "G.I. Tubular, often shortened to GI tube, is a common construction material that's galvanized and comes in various sizes and thicknesses. A 6m (6 meters) length of G.I. Tubular with a wall thickness of 1.2mm is a specific size used in many construction and fabrication projects. ",
+    description: "G.I. Tubular 6m 1.5mm is a galvanized iron pipe, designed for construction and industrial use. Its 6-meter length and 1.2mm thickness offer durability and resistance to corrosion, making it ideal for plumbing, framing, and structural applications. ",
     sizes: [
       "3/4 x 3/4 x 3.2kg",
     "1 x 1 x 4.2kg",
@@ -141,7 +163,7 @@ const products = [
     ],
   },
   { name: "Scaffolding Set S40", image: Scafolding,
-    description: "G.I. Tubular, specifically with a 6-meter length and 1.5mm thickness, is a galvanized iron (G.I.) pipe or tube, commonly used for various construction and industrial applications. It's coated with zinc to prevent rusting and offers good strength and durability.",
+    description: "a basic scaffolding kit or system, likely for small to medium-sized projects. It would typically include components for building a simple, supported scaffolding structure, possibly for light to medium-duty tasks. The 'S2' likely indicates a specific model or size designation within a scaffolding manufacturer's product line.",
     sizes: [
       "1.7m x 1.2m (25kgs)",
     "1.2m x 1.2m (19.5kgs)",
@@ -149,7 +171,7 @@ const products = [
     ],
   },
   { name: "H Frame Only S20", image: HFrame,
-    description: "G.I. Tubular, specifically with a 6-meter length and 1.5mm thickness, is a galvanized iron (G.I.) pipe or tube, commonly used for various construction and industrial applications. It's coated with zinc to prevent rusting and offers good strength and durability.",
+    description: "The H Frame is a durable structural component used in scaffolding systems. Designed for easy assembly, it provides strong support and stability for various construction projects, ensuring safety and reliability during work at height.",
     sizes: [
       "1.7m x 1.2m ",
     "1.2m x 1.2m ",
@@ -158,7 +180,7 @@ const products = [
     ],
   },
   { name: "H Frame Only S40", image: HFrame,
-    description: "G.I. Tubular, specifically with a 6-meter length and 1.5mm thickness, is a galvanized iron (G.I.) pipe or tube, commonly used for various construction and industrial applications. It's coated with zinc to prevent rusting and offers good strength and durability.",
+    description: "The H Frame is a durable structural component used in scaffolding systems. Designed for easy assembly, it provides strong support and stability for various construction projects, ensuring safety and reliability during work at height.",
     sizes: [
       "1.7m x 1.2m  ",
     "1.2m x 1.2m ",
@@ -176,7 +198,7 @@ const products = [
   {
     name: "Insulation",
     image: Insulation,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Insulation is a high-quality material used to regulate temperature and reduce energy loss. Ideal for construction, it helps maintain indoor comfort by preventing heat transfer, enhancing energy efficiency, and ensuring soundproofing in buildings.",
     sizes: [
   "5mm Single Face",
   "5mm Double Face",
@@ -184,9 +206,8 @@ const products = [
   "10mm Double Face",
     ]
   },
-  { name: "B.I Round Tube", image: BIRoundTubing },
   { name: "Angle Bar 1 x 1", image: AngleBars,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Angle Bar is a versatile structural steel component with a right-angle shape, commonly used in construction and fabrication. It provides strength and stability for various applications, including framing, supports, and reinforcements in both residential and industrial projects.",
     sizes: [
   "2mm 4.4kgs",
   "2.5mm 5.4kgs",
@@ -196,7 +217,7 @@ const products = [
     ],
    },
    { name: "Angle Bar 1 1/2 x 1 1/2", image: AngleBars,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Angle Bar is a versatile structural steel component with a right-angle shape, commonly used in construction and fabrication. It provides strength and stability for various applications, including framing, supports, and reinforcements in both residential and industrial projects.",
     sizes: [
   "2.5mm 8.5kgs",
   "3mm 10kgs",
@@ -208,7 +229,7 @@ const products = [
     ],
    },
    { name: "Angle Bar 2 x 2", image: AngleBars,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Angle Bar is a versatile structural steel component with a right-angle shape, commonly used in construction and fabrication. It provides strength and stability for various applications, including framing, supports, and reinforcements in both residential and industrial projects.",
     sizes: [
   "2.5mm 11.5kgs",
   "3mm 13.5kgs",
@@ -220,7 +241,7 @@ const products = [
     ],
    },
    { name: "Angle Bar 2 1/2 x 2 1/2", image: AngleBars,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Angle Bar is a versatile structural steel component with a right-angle shape, commonly used in construction and fabrication. It provides strength and stability for various applications, including framing, supports, and reinforcements in both residential and industrial projects.",
     sizes: [
   "4mm 22.5kgs",
   "5mm 27.6kgs",
@@ -228,7 +249,7 @@ const products = [
     ],
    },
    { name: "Angle Bar 3 x 3", image: AngleBars,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Angle Bar is a versatile structural steel component with a right-angle shape, commonly used in construction and fabrication. It provides strength and stability for various applications, including framing, supports, and reinforcements in both residential and industrial projects.",
     sizes: [
   "4mm 26.5kgs",
   "6mm 39.2kgs",
@@ -237,9 +258,8 @@ const products = [
   "ANGLE BAR 4 x 4 6mm",
     ],
    },
-  { name: "B.I. Sheet", image: BISheet },
   { name: "Flat Bar", image: FlatBars,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Angle Bar is a versatile structural steel component with a right-angle shape, commonly used in construction and fabrication. It provides strength and stability for various applications, including framing, supports, and reinforcements in both residential and industrial projects.",
     sizes: [
   "1 x 3/16 2mm",
   "1 x 3/4 3mm",
@@ -260,7 +280,6 @@ const products = [
   
     ],
    },
-  { name: "B.I Pipe", image: BIPipes2 },
   {
   name: "G.I Pipe",
   image: GIPipes,
@@ -298,9 +317,8 @@ const products = [
   "4 inch x 42kg x 6mtrs S40 2.3mm",
     ]
   },
-  { name: "Accordion Plate", image: AccordionPlate },
   { name: "Barbed Wires", image: BarbedWires,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Barbed Wires are a strong and durable fencing material, designed to deter trespassing and enhance security. Featuring sharp, pointed edges, they are ideal for use in agricultural, industrial, and military applications to create effective barriers.",
     sizes: [
   "21KG 50 meters",
   "25KG 75 meters",
@@ -309,7 +327,7 @@ const products = [
    },
   { name: "Base Plate", image: BasePlate },
      { name: "Base Jack", image: BaseJack,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "A Base Plate is a flat, sturdy metal component used to distribute the load of structural elements such as columns or beams. It provides stability and support in construction projects, ensuring proper alignment and load transfer to the foundation.",
     sizes: [
   "27 x 400mm 2.2kg",
   "27 x 600mm 3.0kg",
@@ -317,9 +335,8 @@ const products = [
   "32 x 600mm 3.5kg",
     ],
    },
-  { name: "B.I and G.I Z-Purlin", image: BIZPurlins },
   { name: "G.I C-Purins", image: CPurlins,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "G.I. C-Purlins are galvanized steel components used in roofing and structural systems. These C-shaped purlins offer strong support and durability, providing a reliable framework for roofs, walls, and other building structures, while resisting corrosion for long-lasting performance.",
     sizes: [
   "2 x 3 x 1.0mm 6.5kg",
   "2 x 3 x 1.2mm 8kg",
@@ -341,7 +358,7 @@ const products = [
 
    },
   { name: "Channel Bar 2 x 3", image: ChannelBar,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Channel Bar is a structural steel component with a `C` shaped cross-section, commonly used in construction and fabrication. It provides excellent strength and support for frameworks, supports, and reinforcements in both commercial and industrial applications.",
     sizes: [
   "3mm",
   "4mm",
@@ -350,7 +367,7 @@ const products = [
     ],
    },
    { name: "Channel Bar 2 x 4", image: ChannelBar,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Channel Bar is a structural steel component with a `C` shaped cross-section, commonly used in construction and fabrication. It provides excellent strength and support for frameworks, supports, and reinforcements in both commercial and industrial applications.",
     sizes: [
   "3.5mm",
   "4mm",
@@ -359,21 +376,21 @@ const products = [
     ],
    },
    { name: "Channel Bar 2 x 5", image: ChannelBar,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Channel Bar is a structural steel component with a `C` shaped cross-section, commonly used in construction and fabrication. It provides excellent strength and support for frameworks, supports, and reinforcements in both commercial and industrial applications.",
     sizes: [
   "3mm",
   "5mm",
     ],
    },
    { name: "Channel Bar 2 x 6", image: ChannelBar,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Channel Bar is a structural steel component with a `C` shaped cross-section, commonly used in construction and fabrication. It provides excellent strength and support for frameworks, supports, and reinforcements in both commercial and industrial applications.",
     sizes: [
   "3mm",
   "5mm",
     ],
    },
    { name: "Turnbuckle", image: Turnbuckle,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "A Turnbuckle is a mechanical device used to adjust the tension or length of cables, ropes, or wires. It features two threaded ends that can be screwed in or out to tighten or loosen, making it ideal for applications requiring precise adjustments in construction, rigging, and structural support.",
     sizes: [
   "8",
   "10",
@@ -387,11 +404,8 @@ const products = [
   "Z BAR",
     ],
    },
-  { name: "Checkered Plate", image: ChecheredPlates },
-  { name: "G.I Sheet", image: GISheets },
-  { name: "M.S. Plate", image: MSPlates },
   { name: "Round Bar", image: PlainRoundBar,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Round Bar is a cylindrical steel bar used in construction, manufacturing, and machining. Known for its strength and versatility, it is commonly used for making structural supports, shafts, pins, and other custom components requiring durability and precise dimensions.",
     sizes: [
   "9mm PRB-ORN / SQB-BLU",
   "10mm PRB-GRN / SQB-WHT",
@@ -402,7 +416,7 @@ const products = [
     ],
    },
   { name: "Square Bar", image: SquareBars,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Square Bar is a solid, square-shaped metal bar widely used in construction, fabrication, and machining. It provides excellent strength and support for structural applications, including framing, reinforcements, and custom projects that require durability and precise cuts.",
     sizes: [
   "9mm PRB-ORN / SQB-BLU",
   "10mm PRB-GRN / SQB-WHT",
@@ -413,7 +427,7 @@ const products = [
     ],
    },
   { name: "Steel Matting 4X8 (W) 2x2", image: SteelMatting,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Steel Matting is a strong, grid-like steel mesh used in construction for reinforcement purposes. It is commonly used in concrete flooring, walls, and foundations to provide structural strength, enhance durability, and prevent cracking by evenly distributing loads.",
     sizes: [
   "GI 2mm",
   "GI 4mm",
@@ -422,7 +436,7 @@ const products = [
     ],
    },
       { name: "Shoring Jack", image: ShoringJack,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "A Shoring Jack is a portable, adjustable support device used in construction to stabilize structures or formwork. It provides temporary support to prevent shifting or collapsing during construction, ensuring safety and stability in areas like foundations, walls, and ceilings.",
     sizes: [
   "3.4m full ext S20 (10kgs)",
   "3.4m full ext S40 (10.5kgs)",
@@ -431,10 +445,8 @@ const products = [
    "5.5m full ext S40 (16.5kgs)",
     ],
    },
-  { name: "Carrying Channel", image: CarryingChannel },
-  { name: "Combat Wires", image: CombatWires },
   { name: "Cyclone Wires", image: CycloneWires,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Cyclone Wires are strong, durable fencing materials designed to protect properties from external threats. Made from galvanized steel, they are commonly used for security fencing, agricultural enclosures, and perimeter barriers, offering excellent resistance to harsh weather conditions and tampering.",
     sizes: [
   "2 x 2 x 3ft x 5m",
   "42 x 2 x 4ft x 5mmm",
@@ -446,25 +458,8 @@ const products = [
     ],
 
    },
-  { name: "Furring Clip", image: FurringClip },
-  { name: "G.I Corrugated Sheet", image: GICorrugatedSheets},
-  { name: "Metal Furring", image: MetalFurring },
-  { name: "Metal Stud", image: MetalStuds },
-  { name: "Metal Track", image: MetalTracks },
-  { name: "Steel Welding Rod", image: SteelWeldingRod },
-  { name: "Tool Steel Shafting", image: ToolSteelShafting },
-  { name: "Wall Angle", image: WallAngle },
-  { name: "Door Track", image: DoorTrack },
-  { name: "Expanded Metal", image: ExpandedMetal },
-  { name: "G.I. Fittings", image: GIBIFittings },
-  { name: "B.I. Fittings", image: GIBIFittings2},
-  { name: "Concrete Nails", image: ConcreteNail},
-  { name: "Common Wire Nails", image: CWNails},
-  { name: "G.I Wires", image: GIWire },
-  { name: "I Bars", image: IBars },
-  { name: "T Bars", image: TBars },
     { name: "U Head Jack", image: UHead,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "A Head Jack is a support device used in scaffolding systems to adjust the height of the structure. It provides stability and safety by supporting and securing formwork or scaffolding during construction, allowing for precise adjustments and reliable load-bearing capacity.",
     sizes: [
   "27 x 400mm 2.4kg",
   "27 x 600mm 3.1kg",
@@ -472,10 +467,8 @@ const products = [
   "32 x 600mm 3.8kg",
     ],
    },
-  { name: "Z Bars", image: ZBars },
-  { name: "Perforated Sheet", image: PerforatedSheet },
   { name: "Phenolic Board", image: Phenolic,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Phenolic Board is a high-performance material made from resin-impregnated paper, offering excellent durability and moisture resistance. It is commonly used in construction and industrial applications for formwork, insulation, and surface finishes, providing a strong, long-lasting solution for demanding environments.",
   sizes: [
     "CLASS A 3/4",
   "CLASS A 1/2",
@@ -484,7 +477,7 @@ const products = [
   ],
    },
    { name: "Plywoods", image: Plywood,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "Plywoods are versatile, multi-layered wood panels used in construction and furniture-making. Made by bonding thin sheets of wood veneer together, they offer strength, flexibility, and resistance to warping, making them ideal for structural support, cabinetry, flooring, and paneling.",
   sizes: [
     "Ordinary Plywood (MIC) 1/4",
   "Ordinary Plywood (MIC) 1/2",
@@ -503,11 +496,8 @@ const products = [
   "PLYBOARD LOCAL 3/4",
   ],
    },
-  { name: "Purlins Connector", image: PurlinsConnector },
-  { name: "Stainless Steel Bar", image: SSteelPipesFlat },
-  { name: "Stainless Steel Pipe", image: SSteelPipesRound },
   { name: "G.I Plain Sheet 4X8 ORD", image: SSteelSheets,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "G.I. Plain Sheet is a galvanized steel sheet, commonly used in construction, roofing, and manufacturing. Coated with zinc for enhanced corrosion resistance, it provides durability, strength, and a long-lasting solution for various industrial and structural applications.",
     sizes: [
   "0.5mm",
   "0.6mm",
@@ -524,7 +514,7 @@ const products = [
     ],
    },
    { name: "G.I Plain Sheet 4X8 STD", image: SSteelSheets,
-    description: "High-quality galvanized iron pipes ideal for plumbing and structural applications.",
+    description: "G.I. Plain Sheet is a galvanized steel sheet, commonly used in construction, roofing, and manufacturing. Coated with zinc for enhanced corrosion resistance, it provides durability, strength, and a long-lasting solution for various industrial and structural applications.",
     sizes: [
   "0.4mm",
   "0.6mm",
@@ -538,17 +528,6 @@ const products = [
   "2mm",
     ],
    },
-  { name: "Stainless Steel Shafting", image: SSteelShafting },
-  { name: "Stainless Steel Welding Rod", image: SSteelWeldingRod },
-  { name: "Fixed Clamp", image: FixedClamp },
-  { name: "Swivel Clamp", image: SwivelClamp },
-  { name: "G.I Rectangular Tube", image: GIRectangularTube },
-
-
-
-
-
-    
 ];
 
 const itemsPerPage = 8;
@@ -717,27 +696,29 @@ function Products() {
       </div>
 
       {selectedProduct && (
-  <dialog id="product_modal" className="modal modal-open" onClick={() => setSelectedProduct(null)}>
-    <div className="modal-box max-w-4xl" onClick={(e) => e.stopPropagation()}>
-      <h3 className="font-bold text-2xl mb-4 text-center">{selectedProduct.name}</h3>
+  <dialog id="product_modal" className="modal modal-open backdrop-blur-lg" onClick={() => setSelectedProduct(null)}>
+    <div className="modal-box max-w-6xl transition-all duration-300 ease-in-out p-6" onClick={(e) => e.stopPropagation()}>
+      <h3 className="font-bold text-4xl text-indigo-800  mb-4 text-center"><strong>{selectedProduct.name}</strong></h3>
 
       <div className="flex flex-col md:flex-row gap-6">
         {/* Left Column: Image + Description */}
         <div className="w-full md:w-1/2">
           <img
-            src={selectedProduct.image}
-            alt={selectedProduct.name}
-            className="rounded mb-2 max-h-[300px] w-full object-contain"
-          />
-          <p className="text-gray-600 mt-2 text-mdtext-justify">
-            {selectedProduct.description}
-          </p>
+  src={selectedProduct.image}
+  alt={selectedProduct.name}
+  className="rounded mb-2 w-full object-contain max-h-[400px]"
+/>
+        <p className="text-indigo-900 font-bold">Product Description:</p>
+           <p className="text-gray-600 mt-2 text-md text-justify leading-relaxed">
+  {selectedProduct.description}
+</p>
+       
         </div>
 
         {/* Right Column: Sizes with Left Border */}
-        <div className="w-full md:w-1/2 border-l border-gray-300 pl-6">
+       <div className="w-full md:w-1/2 gap-6">
           {selectedProduct.sizes && (
-            <div>
+           <div className=" border-l border-gray-300 pl-6">
               <h4 className="font-semibold text-indigo-900">Available Sizes:</h4>
               <ul className="list-disc list-inside text-sm text-gray-700 mt-2 max-h-60 overflow-y-auto">
                 {selectedProduct.sizes.map((size, index) => (

@@ -17,7 +17,7 @@ export default {
         'BGHeader': "url('/src/assets/header.jpg')", 
       },
       animation: {
-        'fade-in': 'fade-in 5s ease-out forwards',
+        'fade-in': 'fade-in 3s ease-out forwards',
         'slide-right': 'slide-right 1s ease-out forwards',
       },
       keyframes: {
