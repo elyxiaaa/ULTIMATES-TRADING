@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer'
 
 function Contact() {
   const [name, setName] = useState('');
@@ -8,14 +9,38 @@ function Contact() {
   const [mobile, setMobile] = useState('');
   const [inquiryType, setInquiryType] = useState('Product Requirement');
   const [message, setMessage] = useState('');
-  const [loading, setLoading] = useState(false); // Loader state
-  const [notification, setNotification] = useState(''); // Notification state
+  const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState(''); 
+  const [progress, setProgress] = useState(0); // Progress bar state
+
+  useEffect(() => {
+    let timer;
+    if (notification) {
+      // Start progress bar when notification is shown
+      timer = setInterval(() => {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            clearInterval(timer); // Stop the progress bar when it reaches 100%
+            return 100;
+          }
+          return prev + 20; // Increase progress every second
+        });
+      }, 1000);
+
+      // Clear the progress bar after 5 seconds
+      setTimeout(() => {
+        setNotification('');
+        setProgress(0); // Reset progress
+      }, 5000); // Notification disappears after 5 seconds
+    }
+    return () => clearInterval(timer);
+  }, [notification]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setLoading(true);
-    setNotification('');
+    setNotification(''); // Clear previous notifications
 
     const formData = {
       name,
@@ -31,17 +56,11 @@ function Contact() {
       .then(
         (response) => {
           setNotification('Message sent successfully!');
-          setTimeout(() => {
-            setNotification('');
-          }, 5000); // Notification disappears after 5 seconds
-          setLoading(false); // Hide loader
+          setLoading(false);
         },
         (error) => {
           setNotification('Failed to send message. Please try again later.');
-          setTimeout(() => {
-            setNotification('');
-          }, 5000);
-          setLoading(false); // Hide loader
+          setLoading(false);
         }
       );
   };
@@ -53,16 +72,32 @@ function Contact() {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl font-bold text-indigo-950 mb-12">HOW CAN WE SERVE YOU?</h1>
 
+          {/* Toast Notification */}
           {notification && (
             <div
-              className={`p-4 text-white ${notification.includes('successfully') ? 'bg-green-500' : 'bg-red-500'} rounded-md text-center mb-6`}
+              className={`fixed top-32 right-4 p-4 text-white rounded-md shadow-lg transition-all duration-300 ${
+                notification.includes('successfully') ? 'bg-green-500' : 'bg-red-500'
+              }`}
             >
-              {notification}
+              <div className="flex flex-col items-start">
+                <span>{notification}</span>
+                {/* Progress Bar */}
+                <div className="w-full h-1 bg-white mt-2 rounded-full">
+                  <div
+                    className="h-1 bg-green-700 rounded-full"
+                    style={{
+                      width: `${progress}%`, // Set width dynamically based on progress
+                      transition: 'width 1s linear',
+                    }}
+                  ></div>
+                </div>
+              </div>
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Form Inputs */}
               <div>
                 <label htmlFor="name" className="block text-lg font-semibold text-indigo-900">
                   Name <span className="text-red-500">*</span>
@@ -131,9 +166,6 @@ function Contact() {
                     Other Inquiry
                   </label>
                 </div>
-                <p className="text-red-600 text-left mt-2 text-sm">
-                  Kindly input complete quantity, product, and sizes of your requirements
-                </p>
               </div>
               <div className="col-span-2">
                 <label htmlFor="message" className="block text-lg font-semibold text-indigo-900">
@@ -156,7 +188,10 @@ function Contact() {
               className="w-full sm:w-auto px-6 py-3 bg-indigo-900 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               {loading ? (
-                <div className="loader w-5 h-5 border-4 border-t-4 border-indigo-500 border-solid rounded-full animate-spin mx-auto"></div> 
+                <span className="flex items-center justify-center">
+                  <span className="loading loading-bars loading-xs"></span>
+                  <span className="ml-2">Submitting...</span>
+                </span>
               ) : (
                 "Submit"
               )}
@@ -164,7 +199,9 @@ function Contact() {
           </form>
         </div>
       </div>
+    <Footer/>
     </>
+  
   );
 }
 

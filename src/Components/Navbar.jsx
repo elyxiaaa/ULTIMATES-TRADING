@@ -17,7 +17,7 @@ function Navbar() {
   // Set active tab based on current location
   const getActiveTab = () => {
     const path = location.pathname;
-    if (path === "/") return "home";
+    if (path === "/home") return "home";
     if (path === "/products") return "products";
     if (path === "/location") return "location";
     if (path === "/career") return "career";
@@ -63,7 +63,7 @@ function Navbar() {
             {/* Home Link */}
           <li className="relative flex items-center gap-2 cursor-pointer group">
               <button
-                onClick={() => handleClick('/')}
+                onClick={() => handleClick('/home')}
                 className={`flex items-center cursor-pointer ${getTextClass('home')}`}
               >
                 <FaHome className="mr-1" />
@@ -174,7 +174,7 @@ function Navbar() {
       {isMobileMenuOpen && (
         <ul className="lg:hidden bg-indigo-950 text-white font-COP1 mt-2 p-4 space-y-3 shadow-lg rounded">
           <li className="relative flex items-center gap-2 cursor-pointer group">
-            <button onClick={() => handleClick('/')} className="flex items-center w-full p-2">
+            <button onClick={() => handleClick('/home')} className="flex items-center w-full p-2">
               Home
             </button>
           </li>

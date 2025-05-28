@@ -13,6 +13,7 @@ import deformedBar from '../assets/deformed-bar.jpg';
 import wideFlange from '../assets/wide-flange.jpg';
 import sheetPile from '../assets/sheet-pile.jpg';
 import SSteelPipes from '../assets/Stainless-Steel-Pipes-Round.jpg'
+import { MdOutlineConstruction } from "react-icons/md";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -57,6 +58,7 @@ const slides = [
 function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+    const [showModal, setShowModal] = useState(true); // State to control modal visibility
   const [isInView, setIsInView] = useState(false);
    useEffect(() => {
     const observer = new IntersectionObserver(
@@ -130,6 +132,11 @@ function Home() {
     return () => clearInterval(timer);
   }, []);
 
+    // Handle closing the modal
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  
   return (
     <>
       <Navbar />

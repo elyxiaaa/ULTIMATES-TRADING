@@ -16,8 +16,9 @@ const ReviewPage = () => {
   const [reviews, setReviews] = useState([]);
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(5);
-  const [loading, setLoading] = useState(false); // State to manage loader visibility
-  const [notification, setNotification] = useState(""); // State for success notification
+  const [loading, setLoading] = useState(false); 
+  const [notification, setNotification] = useState(""); 
+  const [progress, setProgress] = useState(0); // Progress bar state
 
   const fetchReviews = async () => {
     try {
@@ -42,7 +43,6 @@ const ReviewPage = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       setUser(result.user);
-      console.log("User:", result.user);  // Log user details for debugging
     } catch (err) {
       console.error("Login failed:", err);
     }
@@ -53,12 +53,35 @@ const ReviewPage = () => {
     setUser(null);
   };
 
+  useEffect(() => {
+    let timer;
+    if (notification) {
+      // Start progress bar when notification is shown
+      timer = setInterval(() => {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            clearInterval(timer); // Stop the progress bar when it reaches 100%
+            return 100;
+          }
+          return prev + 20; // Increase progress every second
+        });
+      }, 1000);
+
+      // Clear the progress bar after 5 seconds
+      setTimeout(() => {
+        setNotification('');
+        setProgress(0); // Reset progress
+      }, 5000); // Notification disappears after 5 seconds
+    }
+    return () => clearInterval(timer);
+  }, [notification]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!comment.trim()) return;
 
-    setLoading(true); // Show loader when the review is being submitted
-    setNotification(""); // Clear previous notification
+    setLoading(true);
+    setNotification(""); 
 
     const newReview = {
       name: user.displayName,
@@ -74,12 +97,12 @@ const ReviewPage = () => {
       setComment("");
       setRating(5);
       fetchReviews();
-      setNotification("Review submitted successfully!"); // Show success notification
+      setNotification("Review submitted!"); 
     } catch (error) {
       console.error("Error adding review:", error.message);
-      setNotification("Failed to submit review. Please try again."); // Show error notification
+      setNotification("Failed to submit review. Please try again.");
     } finally {
-      setLoading(false); // Hide loader after submission
+      setLoading(false); 
     }
   };
 
@@ -105,6 +128,29 @@ const ReviewPage = () => {
             </button>
           )}
         </div>
+
+        {/* Toast Notification */}
+        {notification && (
+          <div
+            className={`fixed top-32 right-4 p-4 text-white rounded-md shadow-lg transition-all duration-300 ${
+              notification.includes('successfully') ? 'bg-green-500' : 'bg-red-500'
+            }`}
+          >
+            <div className="flex flex-col items-start">
+              <span>{notification}</span>
+              {/* Progress Bar */}
+              <div className="w-full h-1 bg-white mt-2 rounded-full">
+                <div
+                  className="h-1 bg-yellow-500 rounded-full"
+                  style={{
+                    width: `${progress}%`, // Set width dynamically based on progress
+                    transition: 'width 1s linear',
+                  }}
+                ></div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {user && (
           <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow-lg">
@@ -138,17 +184,18 @@ const ReviewPage = () => {
             <button
               type="submit"
               className="bg-emerald-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-emerald-600"
-              disabled={loading}  // Disable the button when loading
+              disabled={loading} 
             >
-              {loading ? "Submitting..." : "Submit Review"}
+              {loading ? (
+                <span className="flex items-center justify-center">
+                  <span className="loading loading-bars loading-xs"></span>
+                  <span className="ml-2">Submitting...</span>
+                </span>
+              ) : (
+                "Submit Review"
+              )}
             </button>
           </form>
-        )}
-
-        {notification && (
-          <div className="mt-6 p-4 text-white bg-green-500 rounded-lg text-center">
-            {notification}
-          </div>
         )}
 
         <div className="mt-12">
@@ -161,7 +208,7 @@ const ReviewPage = () => {
                 <div key={index} className="border border-gray-200 rounded-lg p-6 shadow-lg bg-white hover:bg-gray-50">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-4">
                     <img
-                      src={review.photo || "https://example.com/default-avatar.jpg"}  // Fallback image for missing profile photo
+                      src={review.photo || "https://example.com/default-avatar.jpg"}
                       alt="User"
                       className="w-14 h-14 rounded-full"
                     />
