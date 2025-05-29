@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
-import { FaLocationArrow } from "react-icons/fa6";
+import { FaLocationArrow } from "react-icons/fa";
 import { MdOutlineWorkHistory } from "react-icons/md";
 import { MdQuestionMark } from "react-icons/md";
 import { IoIosCall } from "react-icons/io";
 import { VscFeedback } from "react-icons/vsc";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import Icon from '../assets/Logo.png';
+import Icon from "../assets/Logo.png";
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -47,106 +47,96 @@ function Navbar() {
     <nav className="bg-indigo-950 text-white font-COP1 px-6 py-10 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center relative">
         {/* Logo */}
-        <div className="absolute left-44 top-1/2 transform -translate-y-1/2 hidden lg:block">
-          <Link to="/">
-            <img
-              src={Icon}
-              alt="Logo"
-              className="h-28 w-auto"
-            />
-          </Link>
-        </div>
+<div className="absolute left-10 top-1/2 transform -translate-y-1/2 xl:block hidden">
+  <Link to="/">
+    <img src={Icon} alt="Logo" className="h-28 w-auto" />
+  </Link>
+</div>
+
 
         {/* Navigation Links - Desktop */}
         <div className="hidden lg:flex justify-end mr-20 flex-1">
           <ul className="flex gap-10 items-center text-xl font-medium">
-            {/* Home Link */}
-          <li className="relative flex items-center gap-2 cursor-pointer group">
+            <li className="relative flex items-center gap-2 cursor-pointer group">
               <button
-                onClick={() => handleClick('/home')}
-                className={`flex items-center cursor-pointer ${getTextClass('home')}`}
+                onClick={() => handleClick("/home")}
+                className={`flex items-center cursor-pointer ${getTextClass("home")}`}
               >
                 <FaHome className="mr-1" />
                 Home
               </button>
-              <span className={getUnderlineClass('home')} />
+              <span className={getUnderlineClass("home")} />
             </li>
 
-            {/* Products Link */}
             <li className="relative flex items-center gap-2 cursor-pointer group">
               <button
-                onClick={() => handleClick('/products')}
-                className={`flex items-center cursor-pointer ${getTextClass('products')}`}
+                onClick={() => handleClick("/products")}
+                className={`flex items-center cursor-pointer ${getTextClass("products")}`}
               >
                 <MdOutlineProductionQuantityLimits className="mr-1" />
                 Products
               </button>
-              <span className={getUnderlineClass('products')} />
+              <span className={getUnderlineClass("products")} />
             </li>
 
-            {/* Location Link */}
             <li className="relative flex items-center gap-2 cursor-pointer group">
               <button
-                onClick={() => handleClick('/location')}
-                className={`flex items-center cursor-pointer ${getTextClass('location')}`}
+                onClick={() => handleClick("/location")}
+                className={`flex items-center cursor-pointer ${getTextClass("location")}`}
               >
-                 <FaLocationArrow className="mr-1" /> 
+                <FaLocationArrow className="mr-1" />
                 Location
               </button>
-              <span className={getUnderlineClass('location')} />
+              <span className={getUnderlineClass("location")} />
             </li>
 
-            {/* Careers Link */}
             <li className="relative flex items-center gap-2 cursor-pointer group">
               <button
-                onClick={() => handleClick('/career')}
-                className={`flex items-center cursor-pointer ${getTextClass('career')}`}
+                onClick={() => handleClick("/career")}
+                className={`flex items-center cursor-pointer ${getTextClass("career")}`}
               >
-               <MdOutlineWorkHistory className="mr-1" /> 
+                <MdOutlineWorkHistory className="mr-1" />
                 Careers
               </button>
-              <span className={getUnderlineClass('career')} />
+              <span className={getUnderlineClass("career")} />
             </li>
 
-            {/* FAQ Link */}
             <li className="relative flex items-center gap-2 cursor-pointer group">
               <button
-                onClick={() => handleClick('/faq')}
-                className={`flex items-center cursor-pointer ${getTextClass('faq')}`}
+                onClick={() => handleClick("/faq")}
+                className={`flex items-center cursor-pointer ${getTextClass("faq")}`}
               >
-               <MdQuestionMark className="mr-1" /> 
+                <MdQuestionMark className="mr-1" />
                 FAQs
               </button>
-              <span className={getUnderlineClass('faq')} />
+              <span className={getUnderlineClass("faq")} />
             </li>
 
-            {/* Contact Link */}
             <li className="relative flex items-center gap-2 cursor-pointer group">
               <button
-                onClick={() => handleClick('/contact')}
-                className={`flex items-center cursor-pointer ${getTextClass('contact')}`}
+                onClick={() => handleClick("/contact")}
+                className={`flex items-center cursor-pointer ${getTextClass("contact")}`}
               >
-              <IoIosCall className="mr-1" /> 
+                <IoIosCall className="mr-1" />
                 Contact Us
               </button>
-              <span className={getUnderlineClass('contact')} />
+              <span className={getUnderlineClass("contact")} />
             </li>
 
-            {/* Reviews Link */}
             <li className="relative flex items-center gap-2 cursor-pointer group">
               <button
-                onClick={() => handleClick('/reviews')}
-                className={`flex items-center cursor-pointer ${getTextClass('reviews')}`}
+                onClick={() => handleClick("/reviews")}
+                className={`flex items-center cursor-pointer ${getTextClass("reviews")}`}
               >
-                 <VscFeedback className="mr-1" /> 
+                <VscFeedback className="mr-1" />
                 Reviews
               </button>
-              <span className={getUnderlineClass('reviews')} />
+              <span className={getUnderlineClass("reviews")} />
             </li>
           </ul>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Button */}
         <div className="lg:hidden flex items-center">
           <button
             className="text-white"
@@ -174,31 +164,43 @@ function Navbar() {
       {isMobileMenuOpen && (
         <ul className="lg:hidden bg-indigo-950 text-white font-COP1 mt-2 p-4 space-y-3 shadow-lg rounded">
           <li className="relative flex items-center gap-2 cursor-pointer group">
-            <button onClick={() => handleClick('/home')} className="flex items-center w-full p-2">
+            <button onClick={() => handleClick("/home")} className="flex items-center w-full p-2">
               Home
             </button>
           </li>
 
           <li className="relative flex items-center gap-2 cursor-pointer group">
-            <button onClick={() => handleClick('/products')} className="flex items-center w-full p-2">
+            <button onClick={() => handleClick("/products")} className="flex items-center w-full p-2">
               Products
             </button>
           </li>
 
           <li className="relative flex items-center gap-2 cursor-pointer group">
-            <button onClick={() => handleClick('/location')} className="flex items-center w-full p-2">
+            <button onClick={() => handleClick("/location")} className="flex items-center w-full p-2">
               Location
             </button>
           </li>
 
           <li className="relative flex items-center gap-2 cursor-pointer group">
-            <button onClick={() => handleClick('/faq')} className="flex items-center w-full p-2">
+            <button onClick={() => handleClick("/faq")} className="flex items-center w-full p-2">
               FAQs
             </button>
           </li>
 
           <li className="relative flex items-center gap-2 cursor-pointer group">
-            <button onClick={() => handleClick('/contact')} className="flex items-center w-full p-2">
+            <button onClick={() => handleClick("/career")} className="flex items-center w-full p-2">
+              Careers
+            </button>
+          </li>
+
+          <li className="relative flex items-center gap-2 cursor-pointer group">
+            <button onClick={() => handleClick("/reviews")} className="flex items-center w-full p-2">
+              Reviews
+            </button>
+          </li>
+
+          <li className="relative flex items-center gap-2 cursor-pointer group">
+            <button onClick={() => handleClick("/contact")} className="flex items-center w-full p-2">
               Contacts
             </button>
           </li>

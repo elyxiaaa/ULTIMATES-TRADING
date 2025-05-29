@@ -230,70 +230,71 @@ function Home() {
       </div>
     </div>
 
-      {/* PRODUCT SHOWCASE */}
-      <div className="w-full bg-white py-16">
-        <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-indigo-950"><strong>VARIABILITY &</strong></span> <br />
-              <span className="text-yellow-500"><strong>AVAILABILITY</strong></span>
-            </h1>
-          </div>
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-black">
-              You can find everything that you need all coming from a brand with a guarantee of good quality.
-            </p>
-            <Link to="/products">
-              <button onClick={handleProductsClick}
-              className="mt-6 w-56 font-bold bg-indigo-900 text-white hover:text-white hover:bg-indigo-500  py-4 px-6 rounded-md transition-all duration-300">
-                View All Products
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="w-full mt-12 px-4 md:px-12">
-      <div className="relative">
-        <Slider
-          {...settings}
-          ref={sliderRef} 
+    {/* PRODUCT SHOWCASE */}
+<div className="w-full bg-white py-16">
+  <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 xl:px-44 gap-10">
+    <div className="w-full lg:w-1/2 text-center lg:text-left">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+        <span className="text-indigo-950"><strong>VARIABILITY &</strong></span> <br />
+        <span className="text-yellow-500"><strong>AVAILABILITY</strong></span>
+      </h1>
+    </div>
+    <div className="w-full lg:w-1/2 text-center lg:text-left">
+      <p className="text-lg sm:text-xl md:text-2xl font-semibold text-black">
+        You can find everything that you need all coming from a brand with a guarantee of good quality.
+      </p>
+      <Link to="/products">
+        <button
+          onClick={handleProductsClick}
+          className="mt-6 w-full sm:w-56 font-bold bg-indigo-900 text-white hover:text-white hover:bg-indigo-500 py-4 px-6 rounded-md transition-all duration-300"
         >
-          {items.map((item, index) => (
-            <div key={index} className="relative px-3">
+          View All Products
+        </button>
+      </Link>
+    </div>
+  </div>
+
+  <div className="w-full mt-12 px-4 md:px-12">
+    <div className="relative">
+      <Slider
+        {...settings}
+        ref={sliderRef}
+      >
+        {items.map((item, index) => (
+          <div key={index} className="relative px-3">
+            <div
+              className={`w-full h-[300px] md:h-[360px] lg:h-[400px] xl:h-[460px] overflow-hidden flex items-center justify-center rounded-lg relative transition-all duration-300
+                ${activeIndex === index ? '' : 'bg-white opacity-50'}`} // Apply overlay for non-active slides
+            >
               <div
-                className={`w-full h-[300px] md:h-[360px] lg:h-[400px] xl:h-[460px] overflow-hidden flex items-center justify-center rounded-lg relative transition-all duration-300
-                  ${activeIndex === index ? '' : 'bg-white opacity-50'}`} // Apply overlay for non-active slides
-              >
-                <div
-                  className={`w-full h-full bg-cover bg-center transition-all duration-300`}
-                  style={{
-                    backgroundImage: `url(${item.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-              </div>
-              <div className="absolute bottom-4 left-10 text-white font-bold text-2xl drop-shadow-lg">
-                {item.title}
-              </div>
+                className={`w-full h-full bg-cover bg-center transition-all duration-300`}
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              ></div>
             </div>
-          ))}
-        </Slider>
-        <div className="mt-6 flex justify-center gap-3">
-          {items.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => sliderRef.current.slickGoTo(index)} 
-              className={`w-3 h-3 rounded-full transition-all duration-300 
-                ${activeIndex === index ? 'bg-indigo-600 scale-125' : 'bg-gray-400'}`}
-            />
-          ))}
-        </div>
+            <div className="absolute bottom-4 left-10 text-white font-bold text-2xl drop-shadow-lg">
+              {item.title}
+            </div>
+          </div>
+        ))}
+      </Slider>
+      <div className="mt-6 flex justify-center gap-3">
+        {items.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => sliderRef.current.slickGoTo(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 
+              ${activeIndex === index ? 'bg-indigo-600 scale-125' : 'bg-gray-400'}`}
+          />
+        ))}
       </div>
     </div>
+  </div>
+</div>
 
-
-      </div>
 
       {/* PLACEHOLDER FINAL SECTION */}
       <div className="h-fit  w-full bg-BG3 bg-cover bg-center bg-no-repeat relative">
