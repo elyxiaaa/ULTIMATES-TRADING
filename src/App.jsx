@@ -12,6 +12,7 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Loader from "./Components/Loader"; // Import the loader component
 import { FaTools } from "react-icons/fa";  // Using FontAwesome for tools icon
+import { LuConstruction } from "react-icons/lu";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -52,17 +53,18 @@ const LoaderWithPageChange = () => {
   return (
     <>
       {loading ? (
-       <div className="flex justify-center items-center w-full h-screen bg-gray-100">
+  <div className="flex justify-center items-center w-full h-screen bg-gray-100">
     <div className="text-center">
-      {/* Icon */}
+      <div className="flex items-center justify-center gap-4">
+      {/* Icon centered horizontally and vertically */}
       <FaTools className="text-6xl text-yellow-500 animate-spin mb-4" />
-      
+      <LuConstruction className="text-6xl text-yellow-500 mb-4"/>
+      </div>
       {/* Text */}
-      <p className="text-2xl font-semibold text-indigo-800">
+      <p className="text-2xl font-semibold text-indigo-800 mb-4">
         Loading the best quality products...
       </p>
-      
-     <span className="loading loading-dots loading-xl"></span>
+      <span className="text-indigo-800 loading loading-dots loading-xl"></span>
     </div>
   </div>
       ) : null}
