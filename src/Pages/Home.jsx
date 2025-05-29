@@ -162,6 +162,7 @@ function Home() {
         >
           At our core, we are dedicated to delivering top-tier steel solutions. Our unwavering commitment to quality and customer satisfaction ensures that every project you undertake is built on a foundation of trust and reliability.
         </p>
+        <Link to="/reviews">
         <button
           className={`w-44 font-bold bg-indigo-900 text-white hover:text-white hover:bg-indigo-500 py-4 px-6 rounded-md transition-all duration-1000 ${
             isInView ? 'animate-slide-right animate-fade-in' : ''
@@ -169,6 +170,7 @@ function Home() {
         >
           Learn More
         </button>
+        </Link>
       </div>
     </div>
     

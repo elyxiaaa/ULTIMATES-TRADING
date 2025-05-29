@@ -1,5 +1,6 @@
 import { MdOutlineConstruction } from "react-icons/md";
 import { useState, useEffect, useRef } from 'react';
+import { MdNavigateNext } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom"; 
 function Landing() {
      const [showModal, setShowModal] = useState(true); // State to control modal visibility
@@ -37,13 +38,16 @@ function Landing() {
           </h2>
 
           {/* Proceed Button with fade-in animation */}
-          <div className="flex justify-center animate-fade-in">
-            <button 
-              onClick={handleCloseModal} 
-              className="w-44 py-3 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-indigo-700 transition duration-300">
-              Proceed
-            </button>
-          </div>
+<div className="flex justify-center items-center animate-fade-in">
+  <button 
+    onClick={handleCloseModal} 
+    className="flex flex-col justify-center items-center w-16 py-3 bg-black/30 text-white text-lg font-semibold rounded-full transition-all duration-500 ease-in-out transform hover:scale-110 hover:translate-y-1 hover:animate-bounce">
+    <MdNavigateNext className="text-4xl" />
+  </button>
+</div>
+
+<span className="text-sm">Click here to proceed</span>
+
         </div>
       </div>
     </div>
