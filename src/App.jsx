@@ -42,7 +42,7 @@ const LoaderWithPageChange = () => {
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false); // Hide loader after 1.5 seconds
-    }, 500);
+    }, 600);
     
     return () => clearTimeout(timer); // Cleanup timeout on component unmount
   }, [location]);  // Only trigger when location changes (i.e., page changes)
