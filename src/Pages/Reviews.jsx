@@ -133,29 +133,30 @@ const ReviewPage = () => {
   return (
     <>
       <Navbar />
-      <div className="w-screen h-full ">
-<div className="w-full bg-BGHeader">
-  <div className="max-w-6xl w-full mx-auto px-8 sm:px-10 lg:px-12 py-6">
-    <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-      <h2 className="text-6xl font-bold text-indigo-950">Product Reviews</h2>
-      {user ? (
-        <div className="flex items-center gap-4">
-          <img src={user.photoURL || "https://example.com/default-avatar.jpg"} alt="User" className="w-16 h-16 rounded-full" />
-          <button onClick={handleLogout} className="text-lg text-red-500 hover:underline font-semibold">
-            Logout
-          </button>
+      <div className="w-full">
+        {/* Header with background */}
+        <div className="bg-BGHeader bg-no-repeat bg-cover bg-center">
+          <div className="max-w-6xl w-full mx-auto px-8 sm:px-10 lg:px-12 py-6">
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+              <h2 className="text-6xl font-bold text-indigo-950">Product Reviews</h2>
+              {user ? (
+                <div className="flex items-center gap-4">
+                  <img src={user.photoURL || "https://example.com/default-avatar.jpg"} alt="User" className="w-16 h-16 rounded-full" />
+                  <button onClick={handleLogout} className="text-lg text-red-500 hover:underline font-semibold">
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={handleLogin}
+                  className="bg-emerald-500 text-white px-8 py-3 rounded-lg shadow-md hover:bg-emerald-600 text-base sm:text-lg"
+                >
+                  Sign in with Google
+                </button>
+              )}
+            </div>
+          </div>
         </div>
-      ) : (
-        <button
-          onClick={handleLogin}
-          className="bg-emerald-500 text-white px-8 py-3 rounded-lg shadow-md hover:bg-emerald-600 text-base sm:text-lg"
-        >
-          Sign in with Google
-        </button>
-      )}
-    </div>
-  </div>
-</div>
 
       <div className="max-w-6xl w-full mx-auto px-8 sm:px-10 lg:px-12 py-6 min-h-screen">
 
