@@ -15,8 +15,6 @@ import { FaTools } from "react-icons/fa";  // Using FontAwesome for tools icon
 import { LuConstruction } from "react-icons/lu";
 
 function App() {
-  const [loading, setLoading] = useState(false);
-  
   return (
     <BrowserRouter>
       <LoaderWithPageChange />  {/* Use the Loader with page change logic */}
@@ -36,7 +34,6 @@ function App() {
   );
 }
 
-// Create a new component to handle the location-based loading logic
 const LoaderWithPageChange = () => {
   const [loading, setLoading] = useState(false);
   const location = useLocation();
@@ -53,20 +50,18 @@ const LoaderWithPageChange = () => {
   return (
     <>
       {loading ? (
-  <div className="flex justify-center items-center w-full h-screen bg-gray-100">
-    <div className="text-center">
-      <div className="flex items-center justify-center gap-4">
-      {/* Icon centered horizontally and vertically */}
-      <FaTools className="text-6xl text-yellow-500 animate-spin mb-4" />
-      <LuConstruction className="text-6xl text-yellow-500 mb-4"/>
-      </div>
-      {/* Text */}
-      <p className="text-2xl font-semibold text-indigo-800 mb-4">
-        Loading the best quality products...
-      </p>
-      <span className="text-indigo-800 loading loading-dots loading-xl"></span>
-    </div>
-  </div>
+        <div className="fixed inset-0 flex justify-center items-center bg-gray-100 z-50">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-4">
+              <FaTools className="text-6xl text-yellow-500 animate-spin mb-4" />
+              <LuConstruction className="text-6xl text-yellow-500 mb-4"/>
+            </div>
+            <p className="text-2xl font-semibold text-indigo-800 mb-4">
+              Loading the best quality products...
+            </p>
+            <span className="text-indigo-800 loading loading-dots loading-xl"></span>
+          </div>
+        </div>
       ) : null}
     </>
   );
