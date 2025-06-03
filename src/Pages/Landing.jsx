@@ -35,7 +35,7 @@ function Landing() {
                 <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-bottom">
                   <span className="underline decoration-blue-400">Premium</span> Quality 
                   <span className="underline decoration-yellow-400"> Construction Materials</span>,<br />
-                  Building Your Future with our <span className="underline decoration-blue-400">Reliable</span>  
+                  Building Your Future with our <span className="underline decoration-blue-400">Reliable </span>
                   and <span className="underline decoration-yellow-400">Durable</span> Steel Products
                 </h2>
 
